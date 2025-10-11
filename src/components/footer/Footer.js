@@ -12,16 +12,25 @@ export default function Footer() {
       <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
         {emoji("Made with ❤️ by Navin Chaudhary")}
       </p>
-      <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
-        Built with React ⚛️ and powered by{" "}
-        <a
-          href="https://laravel.com/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Laravel
-        </a>
-      </p>
+   <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
+  Built with{" "}
+  <a
+    href="https://reactjs.org/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    React
+  </a>{" "}
+  and powered by{" "}
+  <a
+    href="https://laravel.com/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Laravel
+  </a>
+</p>
+
     </div>
   </Fade>
 );
