@@ -125,3 +125,21 @@
     width: auto;
   }
 }
+/* Default button spacing */
+.button-greeting-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+/* Mobile screens: slightly smaller buttons */
+@media screen and (max-width: 480px) {
+  .button-greeting-div button,
+  .button-greeting-div a button {
+    padding: 8px 14px; /* thoda chota padding */
+    font-size: 14px;   /* thoda chota text */
+  }
+}

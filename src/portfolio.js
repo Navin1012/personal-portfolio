@@ -20,158 +20,92 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Saad Pasta",
-  title: "Hi all, I'm Saad",
-  subTitle: emoji(
-    "A passionate Full Stack Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks."
-  ),
-  resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
-  displayGreeting: true // Set false to hide this section, defaults to true
+username: "Navin",
+title: "Hi all, I'm Navin Chaudhary",
+subTitle: emoji("A PHP Laravel Developer 💻 with expertise in building dynamic, secure, and scalable web applications using Laravel, MySQL, React, and modern frontend frameworks. Focused on clean code and high-quality solutions."),
+resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+displayGreeting: true
 };
+
 
 // Social Media Links
 
 const socialMediaLinks = {
-  github: "https://github.com/saadpasta",
-  linkedin: "https://www.linkedin.com/in/saadpasta/",
-  gmail: "saadpasta70@gmail.com",
-  gitlab: "https://gitlab.com/saadpasta",
-  facebook: "https://www.facebook.com/saad.pasta7",
-  medium: "https://medium.com/@saadpasta",
-  stackoverflow: "https://stackoverflow.com/users/10422806/saad-pasta",
-  // Instagram, Twitter and Kaggle are also supported in the links!
-  // To customize icons and social links, tweak src/components/SocialMedia
-  display: true // Set true to display this section, defaults to false
+github: "https://github.com/Navin1012",
+linkedin: "https://www.linkedin.com/in/navin1012/",
+gmail: "nc13760@gmail.com",
+instagram: "https://www.instagram.com/navin_chaudhary___?igsh=OXZrbHpsc3IwdzBl",
+display: true
 };
 
 // Skills Section
 
 const skillsSection = {
-  title: "What I do",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
-  skills: [
-    emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
-    ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
-    )
-  ],
-
-  /* Make Sure to include correct Font Awesome Classname to view your icon
-https://fontawesome.com/icons?d=gallery */
-
-  softwareSkills: [
-    {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
-    },
-    {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
-    },
-    {
-      skillName: "sass",
-      fontAwesomeClassname: "fab fa-sass"
-    },
-    {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
-    },
-    {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react"
-    },
-    {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
-    },
-    {
-      skillName: "swift",
-      fontAwesomeClassname: "fab fa-swift"
-    },
-    {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm"
-    },
-    {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "aws",
-      fontAwesomeClassname: "fab fa-aws"
-    },
-    {
-      skillName: "firebase",
-      fontAwesomeClassname: "fas fa-fire"
-    },
-    {
-      skillName: "python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
-      skillName: "docker",
-      fontAwesomeClassname: "fab fa-docker"
-    }
-  ],
-  display: true // Set false to hide this section, defaults to true
+title: "What I do",
+subTitle: "PASSIONATE LARAVEL DEVELOPER WHO BUILDS SCALABLE AND EFFICIENT WEB APPLICATIONS",
+skills: [
+emoji("⚡ Build robust backend systems and RESTful APIs using PHP & Laravel"),
+emoji("⚡ Design and manage MySQL / MongoDB databases with optimized queries"),
+emoji("⚡ Develop responsive front-end interfaces using React.js / Blade templates"),
+emoji("⚡ Implement authentication, roles, and permissions with Laravel Breeze, Jetstream, and Sanctum"),
+emoji("⚡ Integrate third-party APIs, payment gateways, and AWS/Firebase services"),
+emoji("⚡ Manage deployment, version control, and CI/CD pipelines")
+],
+softwareSkills: [
+{ skillName: "PHP", fontAwesomeClassname: "fab fa-php" },
+{ skillName: "Laravel", fontAwesomeClassname: "fab fa-laravel" },
+{ skillName: "HTML5", fontAwesomeClassname: "fab fa-html5" },
+{ skillName: "CSS3", fontAwesomeClassname: "fab fa-css3-alt" },
+{ skillName: "JavaScript", fontAwesomeClassname: "fab fa-js" },
+{ skillName: "ReactJS", fontAwesomeClassname: "fab fa-react" },
+{ skillName: "MySQL", fontAwesomeClassname: "fas fa-database" },
+{ skillName: "MongoDB", fontAwesomeClassname: "fas fa-leaf" },
+{ skillName: "Git", fontAwesomeClassname: "fab fa-git-alt" },
+{ skillName: "GitHub", fontAwesomeClassname: "fab fa-github" },
+{ skillName: "Tailwind CSS", fontAwesomeClassname: "fas fa-paint-brush" },
+{ skillName: "VS Code", fontAwesomeClassname: "fas fa-code" },
+{ skillName: "AWS", fontAwesomeClassname: "fab fa-aws" }
+],
+display: true
 };
+
 
 // Education Section
 
 const educationInfo = {
-  display: true, // Set false to hide this section, defaults to true
-  schools: [
-    {
-      schoolName: "Harvard University",
-      logo: require("./assets/images/harvardLogo.png"),
-      subHeader: "Master of Science in Computer Science",
-      duration: "September 2017 - April 2019",
-      desc: "Participated in the research of XXX and published 3 papers.",
-      descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      ]
-    },
-    {
-      schoolName: "Stanford University",
-      logo: require("./assets/images/stanfordLogo.png"),
-      subHeader: "Bachelor of Science in Computer Science",
-      duration: "September 2013 - April 2017",
-      desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
-      descBullets: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
-    }
-  ]
+display: true,
+schools: [
+{
+schoolName: "Gokul Global University",
+logo: require("./assets/images/ggu.png"),
+subHeader: "Master of Computer Applications (MCA)",
+duration: "2023 - 2025",
+desc: "Focused on advanced software development, database management, and full-stack web technologies.",
+descBullets: [
+"Specialized in web application development using PHP Laravel and React.js",
+"Worked on real-world academic projects involving RESTful API integration"
+]
+}
+]
 };
+
 
 // Your top 3 proficient stacks/tech experience
 
 const techStack = {
-  viewSkillBars: true, //Set it to true to show Proficiency Section
-  experience: [
-    {
-      Stack: "Frontend/Design", //Insert stack or technology you have experience in
-      progressPercentage: "90%" //Insert relative proficiency in percentage
-    },
-    {
-      Stack: "Backend",
-      progressPercentage: "70%"
-    },
-    {
-      Stack: "Programming",
-      progressPercentage: "60%"
-    }
-  ],
-  displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
-};
+viewSkillBars: true,
+experience: [
+{ Stack: "Frontend/Design", progressPercentage: "70%" },
+{ Stack: "Backend", progressPercentage: "90%" },
+{ Stack: "Programming", progressPercentage: "80%" }
+],
+displayCodersrank: false
+}
 
 // Work experience section
 
 const workExperiences = {
-  display: true, //Set it to true to show workExperiences Section
+  display: false, //Set it to true to show workExperiences Section
   experience: [
     {
       role: "Software Engineer",
@@ -206,7 +140,7 @@ To know how to get github key look at readme.md */
 
 const openSource = {
   showGithubProfile: "true", // Set true or false to show Contact profile using Github, defaults to true
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Some big projects you have worked on
@@ -239,7 +173,7 @@ const bigProjects = {
       ]
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Achievement Section
@@ -300,32 +234,23 @@ const achievementSection = {
       ]
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Blogs Section
 
 const blogSection = {
-  title: "Blogs",
-  subtitle:
-    "With Love for Developing cool stuff, I love to write and teach others what I have learnt.",
-  displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
-  blogs: [
-    {
-      url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
-      title: "Win a Google Assistant Tshirt and $200 in Google Cloud Credits",
-      description:
-        "Do you want to win $200 and Google Assistant Tshirt by creating a Google Assistant Action in less then 30 min?"
-    },
-    {
-      url: "https://medium.com/@saadpasta/why-react-is-the-best-5a97563f423e",
-      title: "Why REACT is The Best?",
-      description:
-        "React is a JavaScript library for building User Interface. It is maintained by Facebook and a community of individual developers and companies."
-    }
-  ],
-  display: true // Set false to hide this section, defaults to true
+title: "Blogs",
+subtitle: "As a PHP Laravel Developer, I love sharing tutorials, tips, and real-world project experiences.",
+displayMediumBlogs: "false",
+blogs: [
+{ title: "Building RESTful APIs with Laravel 10", description: "Learn to design secure, scalable REST APIs in Laravel 10 using best practices." },
+{ title: "Optimizing Laravel Performance for Production", description: "Guide on caching, query optimization, and performance tuning in Laravel." },
+{ title: "Integrating React with Laravel using Inertia.js", description: "Step-by-step guide for building full-stack apps with Laravel + React." }
+],
+display: true
 };
+
 
 // Talks Sections
 
@@ -343,7 +268,7 @@ const talkSection = {
       event_url: "https://www.facebook.com/events/2339906106275053/"
     }
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Podcast Section
@@ -356,7 +281,7 @@ const podcastSection = {
   podcast: [
     "https://anchor.fm/codevcast/embed/episodes/DevStory---Saad-Pasta-from-Karachi--Pakistan-e9givv/a-a15itvo"
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Resume Section
@@ -365,22 +290,22 @@ const resumeSection = {
   subtitle: "Feel free to download my resume",
 
   // Please Provide with Your Podcast embeded Link
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 const contactInfo = {
-  title: emoji("Contact Me ☎️"),
-  subtitle:
-    "Discuss a project or just want to say hi? My Inbox is open for all.",
-  number: "+92-0000000000",
-  email_address: "saadpasta70@gmail.com"
+title: emoji("Contact Me ☎️"),
+subtitle: "Discuss a Laravel project, collaborate, or just say hi! My inbox is always open.",
+number: "+91-9313404276",
+email_address: "nc13760@gmail.com"
 };
+
 
 // Twitter Section
 
 const twitterDetails = {
   userName: "twitter", //Replace "twitter" with your twitter username without @
-  display: true // Set true to display this section, defaults to false
+  display: false // Set true to display this section, defaults to false
 };
 
 const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
