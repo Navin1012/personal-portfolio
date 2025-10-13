@@ -1,68 +1,57 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./Skills.scss";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
-import {illustration, skillsSection} from "../../portfolio";
-import {Fade} from "react-reveal";
+import { illustration, skillsSection } from "../../portfolio";
+import { Fade } from "react-reveal";
 import codingPerson from "../../assets/lottie/codingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Skills() {
-  const {isDark} = useContext(StyleContext);
+  const { isDark } = useContext(StyleContext);
   if (!skillsSection.display) {
     return null;
   }
   return (
-    <div className={isDark ? "dark-mode main" : "main"} id="skills">
-      <div className="skills-main-div">
+    <div className={`skills-section ${isDark ? "dark-mode" : ""}`} id="skills">
+      <div className="skills-container">
         <Fade left duration={1000}>
-          <div className="skills-image-div">
+          <div className="skills-visual">
             {illustration.animated ? (
               <DisplayLottie animationData={codingPerson} />
             ) : (
               <img
-                alt="Man Working"
+                alt="Developer at work"
                 src={require("../../assets/images/developerActivity.svg")}
-              ></img>
+              />
             )}
           </div>
         </Fade>
         <Fade right duration={1000}>
-          <div className="skills-text-div">
-            <h1
-              className={isDark ? "dark-mode skills-heading" : "skills-heading"}
-            >
-              {skillsSection.title}{" "}
+          <div className="skills-content">
+            <h1 className="skills-title">
+              {skillsSection.title}
             </h1>
-            <p
-              className={
-                isDark
-                  ? "dark-mode subTitle skills-text-subtitle"
-                  : "subTitle skills-text-subtitle"
-              }
-            >
+            <p className="skills-subtitle">
               {skillsSection.subTitle}
             </p>
             <SoftwareSkill />
-            <div>
-              {skillsSection.skills.map((skills, i) => {
-                return (
-                  <p
-                    key={i}
-                    className={
-                      isDark
-                        ? "dark-mode subTitle skills-text"
-                        : "subTitle skills-text"
-                    }
-                  >
-                    {skills}
-                  </p>
-                );
-              })}
-            </div>
           </div>
         </Fade>
       </div>
+      
+      {/* Skills list moved below the main content */}
+      <Fade bottom duration={1000}>
+        <div className="skills-list-container">
+          <div className="skills-list">
+            {skillsSection.skills.map((skill, i) => (
+              <div key={i} className="skill-item">
+                {skill}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Fade>
     </div>
   );
 }

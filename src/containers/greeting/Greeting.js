@@ -19,50 +19,83 @@ export default function Greeting() {
       <div className="greet-main" id="greeting">
         <div className="greeting-main">
           <div className="greeting-text-div">
-            <div>
-              <h1
-                className={isDark ? "dark-mode greeting-text" : "greeting-text"}
-              >
-                {" "}
-                {greeting.title}{" "}
-                <span className="wave-emoji">{emoji("👋")}</span>
-              </h1>
-              <p
-                className={
-                  isDark
-                    ? "dark-mode greeting-text-p"
-                    : "greeting-text-p subTitle"
-                }
-              >
-                {greeting.subTitle}
-              </p>
-              <div id="resume" className="empty-div"></div>
-              <SocialMedia />
-              <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
-                {greeting.resumeLink && (
-                  <a
-                    href="/resume.pdf"
-                    download="Resume.pdf"
-                    className="download-link-button"
-                  >
-                    <Button text="Download my resume" />
-                  </a>
-                )}
+            <div className="greeting-content">
+              {/* Badge */}
+              <div className={`professional-badge ${isDark ? 'dark' : 'light'}`}>
+                <span className="badge-icon">💻</span>
+                <span>PHP Laravel Developer</span>
               </div>
 
+              <h1 className={isDark ? "dark-mode greeting-text" : "greeting-text"}>
+                Hi, I'm <span className="name-highlight">Navin Chaudhary</span>
+                <span className="wave-emoji">{emoji("👋")}</span>
+              </h1>
+
+
+              <p className={isDark ? "dark-mode greeting-text-p" : "greeting-text-p subTitle"}>
+                {greeting.subTitle}
+              </p>
+
+              {/* Tech Stack Pill */}
+              <div className="tech-stack-pills">
+                <span className="tech-pill">Laravel</span>
+                <span className="tech-pill">PHP</span>
+                <span className="tech-pill">MySQL</span>
+                <span className="tech-pill">React</span>
+                <span className="tech-pill">JavaScript</span>
+              </div>
+
+              <SocialMedia />
+
+              <div className="cta-section">
+                {/* Main CTA Buttons */}
+                <div className="cta-buttons">
+                  <a href="#contact" className="cta-btn primary-cta">
+                    <span className="btn-icon">💬</span>
+                    <span className="btn-text">Get In Touch</span>
+                    <div className="hover-effect"></div>
+                  </a>
+
+                  {greeting.resumeLink && (
+                    <a
+                      href={greeting.resumeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cta-btn secondary-cta"
+                    >
+                      <span className="btn-icon">📄</span>
+                      <span className="btn-text">View Resume</span>
+                      <div className="download-arrow">↓</div>
+                      <div className="hover-effect"></div>
+                    </a>
+                  )}
+                </div>
+
+
+              </div>
             </div>
           </div>
+
           <div className="greeting-image-div">
             {illustration.animated ? (
-              <DisplayLottie animationData={landingPerson} />
+              <div className="lottie-container">
+                <DisplayLottie animationData={landingPerson} />
+                <div className="floating-element element-1">🚀</div>
+                <div className="floating-element element-2">💡</div>
+                <div className="floating-element element-3">⭐</div>
+              </div>
             ) : (
-              <img
-                alt="man sitting on table"
-                src={require("../../assets/images/manOnTable.svg")}
-              ></img>
+              <div className="image-container">
+                <img
+                  alt="man sitting on table"
+                  src={require("../../assets/images/manOnTable.svg")}
+                />
+                <div className="image-overlay"></div>
+              </div>
             )}
           </div>
+
+          
         </div>
       </div>
     </Fade>

@@ -5,27 +5,36 @@
   max-height: 100px;
 }
 
-/* header */
+/* ==================== HEADER ==================== */
 
 .dark-menu {
   background-color: $darkBackground !important;
   color: $textColorDark;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .dark-menu li a {
   color: $textColorDark !important;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .dark-menu li a:hover {
-  background-color: $buttonColor !important;
+  color: $buttonColor !important;
+  background-color: rgba($buttonColor, 0.15) !important;
+  transform: translateY(-2px);
 }
 
+/* Light Mode */
 .header {
   background-color: $lightBackground1;
   max-width: 100%;
   padding: 15px 20px;
-  margin: 0px auto;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* ==================== MENU ==================== */
 
 .header ul {
   margin: 0;
@@ -34,30 +43,61 @@
   overflow: hidden;
 }
 
-.grey-color {
-  color: $subTitle;
-}
-
 .header li a {
   display: block;
   padding: 15px 20px;
   color: $textColor;
+  font-weight: 500;
   text-decoration: none;
+  letter-spacing: 0.3px;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.header li a:hover,
-.header .menu-btn:hover {
-  background-color: $headerHoverBG;
+/* Nice underline hover animation */
+.header li a::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 20px;
+  width: 0;
+  height: 2px;
+  background: $buttonColor;
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
+
+.header li a:hover::after {
+  width: calc(100% - 40px);
+}
+
+.header li a:hover {
+  color: $buttonColor;
+  background-color: transparent;
+}
+
+/* ==================== LOGO ==================== */
 
 .header .logo {
   display: block;
   flex: none;
   float: left;
-  font-size: 1.5em;
+  font-size: 1.6em;
   text-decoration: none;
   margin-top: 10px;
   line-height: normal;
+  font-weight: 600;
+  color:rgb(34, 7, 241);
+  transition: color 0.3s ease;
+}
+
+.header .logo:hover {
+  color: $buttonColor;
+}
+
+.grey-color {
+  color: $subTitle;
+  opacity: 0.8;
 }
 
 .header .logo-name {
@@ -68,15 +108,13 @@
   padding: 0 10px;
 }
 
-/* menu */
+/* ==================== MENU ICON ==================== */
 
 .header .menu {
   clear: both;
   max-height: 0;
   transition: max-height 0.2s ease-out;
 }
-
-/* menu icon */
 
 .header .menu-icon {
   cursor: pointer;
@@ -92,7 +130,7 @@
   display: block;
   height: 2px;
   position: relative;
-  transition: background 0.2s ease-out;
+  transition: all 0.3s ease;
   width: 18px;
 }
 
@@ -107,19 +145,13 @@
   display: block;
   height: 100%;
   position: absolute;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease;
   width: 100%;
 }
 
 .header .menu-icon .navicon-dark:before,
 .header .menu-icon .navicon-dark:after {
   background: $textColorDark !important;
-  content: "";
-  display: block;
-  height: 100%;
-  position: absolute;
-  transition: all 0.2s ease-out;
-  width: 100%;
 }
 
 .header .menu-icon .navicon:before {
@@ -130,7 +162,7 @@
   top: -5px;
 }
 
-/* menu btn */
+/* ==================== MENU BUTTON (checkbox toggle) ==================== */
 
 .header .menu-btn {
   display: none;
@@ -157,26 +189,34 @@
   top: 0;
 }
 
-/* 48em = 768px */
+/* ==================== RESPONSIVE ==================== */
 
 @media (min-width: 48em) {
   .header li {
     float: left;
   }
+
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
   .header .menu {
     max-height: none;
   }
+
   .header .menu-icon {
     display: none;
   }
 }
+
 @media (max-width: 960px) and (min-width: 768px) {
   .header {
     font-size: 12px;
+  }
+
+  .header li a {
+    padding: 12px 15px;
   }
 }

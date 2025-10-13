@@ -6,23 +6,29 @@
   margin: 0px auto;
   margin-top: 4rem;
 }
+
 .greet-main {
   width: 90%;
   padding: 20px 10px;
   margin: 0px auto;
   margin-top: 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .greeting-main {
   display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.greeting-content {
+  position: relative;
 }
 
 .subTitle {
   color: $subTitle !important;
-}
-
-.greeting-main {
-  display: flex;
 }
 
 .greeting-main > * {
@@ -34,28 +40,322 @@
   margin-bottom: 40px;
 }
 
+/* Professional Badge */
+.professional-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  
+  &.light {
+    background: rgba($buttonColor, 0.1);
+    color: $buttonColor;
+    border: 1px solid rgba($buttonColor, 0.2);
+  }
+  
+  &.dark {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.badge-icon {
+  font-size: 16px;
+}
+
+/* Greeting Text */
+.greeting-text {
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: $textColor !important;
+  margin-bottom: 1.5rem;
+  position: relative;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+
+  .name-highlight {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(90deg, $buttonColor, #667eea, #764ba2);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 5s ease infinite;
+    cursor: pointer;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, $buttonColor, #667eea, #764ba2);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+
+    &:hover {
+      text-shadow: 0px 0px 12px rgba(102, 126, 234, 0.4);
+    }
+  }
+}
+
+/* Wave emoji animation stays smooth */
+.wave-emoji {
+  animation: wave 1.8s infinite ease-in-out;
+  display: inline-block;
+  transform-origin: 70% 70%;
+  margin-left: 8px;
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30%, 40% { transform: rotate(-10deg); }
+  20% { transform: rotate(12deg); }
+  50% { transform: rotate(0deg); }
+}
+
+/* Animated gradient flow inside name */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Dark mode tweak for better contrast */
+.dark-mode .greeting-text {
+  color: #e4e4e4 !important;
+}
+
+.greeting-text {
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: $textColor !important;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.3s ease;
+
+  .name-highlight {
+    position: relative;
+    display: inline-block;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+
+    /* ✨ Light Mode Gradient Animation */
+    background: linear-gradient(90deg, $buttonColor, #667eea, #764ba2);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 5s ease infinite;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, $buttonColor, #667eea, #764ba2);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+
+    &:hover {
+      text-shadow: 0px 0px 12px rgba(102, 126, 234, 0.4);
+    }
+  }
+}
+
+/* 🌙 Dark Mode Version */
+.dark-mode .name-highlight {
+  background: linear-gradient(90deg, #00c6ff, #007bff, #6a11cb);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 6s ease infinite;
+
+  &::after {
+    background: linear-gradient(90deg, #00c6ff, #007bff, #6a11cb);
+  }
+
+  &:hover {
+    text-shadow: 0px 0px 14px rgba(0, 140, 255, 0.6);
+  }
+}
+
+/* 🌈 Shared Keyframes */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.greeting-text-p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: $subTitle !important;
+}
+
+/* Tech Stack Pills */
+.tech-stack-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2rem 0;
+}
+
+.tech-pill {
+  padding: 6px 12px;
+  background: rgba($buttonColor, 0.1);
+  color: $buttonColor;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba($buttonColor, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: $buttonColor;
+    color: white;
+    transform: translateY(-2px);
+  }
+}
+
+/* Button Styles */
 .button-greeting-div {
   display: flex;
-  margin-top: 40px;
+  gap: 16px;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
 }
+
 .download-link-button {
   text-decoration: none;
 }
 
-.greeting-text {
-  font-size: 70px;
-  line-height: 1.1;
-  color: $textColor !important;
+.primary-btn, .secondary-btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.greeting-text-p {
-  font-size: 30px;
-  line-height: 40px;
+.primary-btn {
+  background: $buttonColor;
+  color: white;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($buttonColor, 0.3);
+  }
 }
 
-.greeting-image-div > img {
+.secondary-btn {
+  background: transparent;
+  color: $buttonColor;
+  border: 2px solid $buttonColor;
+  
+  &:hover {
+    background: $buttonColor;
+    color: white;
+    transform: translateY(-2px);
+  }
+}
+
+/* Image/Lottie Section */
+.greeting-image-div {
+  position: relative;
+}
+
+.lottie-container, .image-container {
+  position: relative;
   max-width: 100%;
   height: auto;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba($buttonColor, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* Floating Elements */
+.floating-element {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+  
+  &.element-1 {
+    top: 10%;
+    right: 20%;
+    animation-delay: 0s;
+  }
+  
+  &.element-2 {
+    bottom: 30%;
+    left: 10%;
+    animation-delay: 1s;
+  }
+  
+  &.element-3 {
+    top: 40%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .wave-emoji {
@@ -64,6 +364,7 @@
   animation-name: wave;
   display: inline-block;
   transform-origin: 70% 70%;
+  margin-left: 10px;
 }
 
 @keyframes wave {
@@ -90,56 +391,360 @@
   }
 }
 
-/* Media Query */
-@media (max-width: 1380px) {
+/* Media Queries */
+@media (max-width: 1200px) {
   .greeting-text {
-    font-size: 50px;
+    font-size: 3rem;
   }
+  
   .greeting-text-p {
-    font-size: 20px;
+    font-size: 1.2rem;
   }
 }
+
 @media (max-width: 768px) {
+  .greet-main {
+    margin-top: 1rem;
+    min-height: auto;
+  }
+  
+  .greeting-main {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .greeting-text {
+    font-size: 2.2rem;
+  }
+  
+  .greeting-text-p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
   .button-greeting-div {
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .tech-stack-pills {
+    justify-content: center;
+  }
+  
+  .professional-badge {
+    margin: 0 auto 20px;
+  }
+  
+  .greeting-image-div {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .floating-element {
+    display: none; /* Hide floating elements on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting-text {
+    font-size: 1.8rem;
+  }
+  
+  .greeting-text-p {
+    font-size: 1rem;
+  }
+  
+  .button-greeting-div {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .primary-btn, .secondary-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    width: 200px;
+  }
+  
+  .tech-pill {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+}
+
+/* Dark mode specific adjustments */
+.dark-mode {
+  .professional-badge.light {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .tech-pill {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &:hover {
+      background: white;
+      color: $buttonColor;
+    }
+  }
+}
+
+/* Modern CTA Section */
+.cta-section {
+  margin-top: 3rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+}
+
+/* Main CTA Button Styles */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  min-width: 180px;
+  justify-content: center;
+  
+  @media (max-width: 480px) {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    min-width: 160px;
+  }
+}
+
+.primary-cta {
+  background: linear-gradient(135deg, $buttonColor, #667eea);
+  color: white;
+  box-shadow: 0 4px 15px rgba($buttonColor, 0.3);
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba($buttonColor, 0.4);
+    
+    .btn-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .hover-effect {
+      transform: translateX(0%);
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+.secondary-cta {
+  background: transparent;
+  color: $textColor;
+  border: 2px solid rgba($buttonColor, 0.3);
+  position: relative;
+  
+  &:hover {
+    background: rgba($buttonColor, 0.05);
+    border-color: $buttonColor;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba($buttonColor, 0.2);
+    
+    .download-arrow {
+      transform: translateY(3px);
+      opacity: 1;
+    }
+    
+    .btn-icon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* Button Elements */
+.btn-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.download-arrow {
+  margin-left: 0.5rem;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+/* Hover Effect */
+.hover-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: transform 0.6s ease;
+  transform: translateX(-100%);
+}
+
+.primary-cta:hover .hover-effect {
+  transform: translateX(200%);
+}
+
+/* Quick Action Buttons */
+.quick-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
+}
+
+.quick-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  background: rgba($buttonColor, 0.08);
+  color: $textColor;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  
+  &:hover {
+    background: rgba($buttonColor, 0.15);
+    border-color: rgba($buttonColor, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  span:first-child {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    
+    span:first-child {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* Dark Mode Support */
+.dark-mode {
+  .secondary-cta {
+    color: white;
+    border-color: rgba(255,255,255,0.2);
+    
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.4);
+    }
+  }
+  
+  .quick-btn {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    
+    &:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+    }
+  }
+}
+
+/* Animation for button entrance */
+.cta-section {
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for primary CTA */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 4px 15px rgba($buttonColor, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba($buttonColor, 0.5);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba($buttonColor, 0.3);
+  }
+}
+
+.primary-cta {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-btn {
+    min-width: auto;
+    justify-content: center;
+  }
+  
+  .quick-actions {
     justify-content: space-around;
   }
-  .greeting-text {
-    font-size: 30px;
-    text-align: center;
-  }
-  .greeting-text-p {
-    font-size: 16px;
-    line-height: normal;
-    text-align: center;
-  }
-  .greeting-main {
-    display: block;
-  }
-  .greeting-image-div {
-    height: 256px;
+  
+  .quick-btn {
+    flex: 1;
+    justify-content: center;
+    min-width: 80px;
   }
 }
 
-@media (max-width: 320px) {
-  .main {
-    width: auto;
-  }
-}
-/* Default button spacing */
-.button-greeting-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 40px;
-}
-
-/* Mobile screens: slightly smaller buttons */
-@media screen and (max-width: 480px) {
-  .button-greeting-div button,
-  .button-greeting-div a button {
-    padding: 8px 14px; /* thoda chota padding */
-    font-size: 14px;   /* thoda chota text */
-  }
-}

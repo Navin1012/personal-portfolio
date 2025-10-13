@@ -3,87 +3,105 @@
 .education-card {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
 }
 
-.education-card:hover + .education-card-border {
-  border-color: $educationCardBorder;
-  width: 100%;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
-}
-
-.education-card-border {
-  height: 30px;
-  width: 80%;
-  border-top: 2px solid $lightBorder1;
-  margin-bottom: 20px;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
-}
-
-.education-head {
-  display: flex;
-  flex-direction: row;
-}
-
-.education-text-school {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  height: 27px;
+.dark-mode .education-card {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .education-roundedimg {
-  object-fit: cover;
-  margin-right: 2rem;
   width: 6rem;
   height: 6rem;
-  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
   border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
 }
 
 .education-card-right {
-  max-width: 70%;
+  flex: 1;
+}
+
+.education-text-school {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
 }
 
 .education-text-subHeader {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.2rem 0;
   color: $textColor;
-  font-weight: 700;
-  font-size: 19px;
-  margin: 0px;
-  padding-top: 0.8rem;
-  line-height: normal;
+padding: 9px;
+  border-radius: 50px;  /* Simple rounded corners */
+border-radius: 10px;  /* More rounded */
+border-radius: 25px;  /* Pill shaped, elongated cards/buttons */
+
+  
+  .dark-mode & {
+    color: $textColorDark;
+   
+  }
 }
 
 .education-text-duration {
+  font-size: 1rem;
+  margin: 0.2rem 0;
   color: $titleColor;
-  font-size: 19px;
-  margin: 0px;
-  padding-top: 0.5rem;
+  padding: 5px;
+    border-radius: 50px;  /* Simple rounded corners */
+border-radius: 10px;  /* More rounded */
+border-radius: 25px;  /* Pill shaped, elongated cards/buttons */
+
 }
 
 .education-text-desc {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
 }
 
-.education-text-bullets > ul {
-  margin-top: 0.5rem;
+.education-text-bullets ul {
+  padding-left: 1rem;
+  margin: 0.5rem 0;
+  list-style-type: disc;
 }
 
-/* Media Query */
+/* Education Card Border for visual effect */
+.education-card-border {
+  height: 3px;
+  width: 80%;
+  border-top: 2px solid $lightBorder1;
+  margin: 1rem auto;
+  transition: width 0.6s ease-in-out;
+}
 
+.education-card:hover + .education-card-border {
+  width: 100%;
+  border-color: $educationCardBorder;
+}
+
+/* Responsive */
 @media (max-width: 1380px) {
   .education-card {
     flex-direction: column;
-    padding-bottom: 10px;
+    align-items: center;
+    text-align: center;
+  }
+  .education-roundedimg {
+    margin-bottom: 0.5rem;
   }
   .education-card-right {
     max-width: 90%;
@@ -91,28 +109,15 @@
   .education-card-border {
     width: 90%;
   }
-  .education-text-subHeader {
-    padding-top: 0.5rem;
-    font-size: 16px;
-  }
-  .education-text-school {
-    font-size: 20px;
-    height: 23px;
-  }
-  .education-text-duration {
-    font-size: 16px;
-  }
-  .education-roundedimg {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0px;
-  }
 }
 
 @media (max-width: 768px) {
   .education-card {
-    text-align: center;
+    padding: 0.8rem;
+  }
+  .education-roundedimg {
+    width: 4.5rem;
+    height: 4.5rem;
   }
   .education-card-right {
     max-width: 100%;
@@ -120,15 +125,94 @@
   .education-card-border {
     width: 100%;
   }
-  .education-roundedimg {
-    margin-top: 10px;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 1rem;
-    margin-right: 0;
+  .education-text-bullets ul {
+    max-width: 90%;
+    margin: 0.5rem auto;
   }
-  .education-text-bullets > ul {
-    max-width: 80%;
-    margin: auto;
+}
+.education-text-bullets {
+  margin-top: 0.5rem;
+
+  ul {
+    padding-left: 1.5rem; // default indent for bullets
+    margin: 0;
+    list-style-type: disc;
+
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .education-text-bullets ul {
+    padding-left: 1rem;
+    max-width: 90%;
+    margin: 0.5rem auto; // center horizontally
+  }
+
+  .education-text-bullets ul li {
+    font-size: 0.9rem;
+    text-align: left; // still aligned left for readability
+  }
+}
+
+@media (max-width: 480px) {
+  .education-text-bullets ul {
+    padding-left: 0.8rem;
+  }
+
+  .education-text-bullets ul li {
+    font-size: 0.85rem;
+  }
+}
+.education-text-subHeader {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0.25rem 0 0.5rem 0;
+  color: $textColor;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+
+  .dark-mode & {
+    color: $textColorDark;
+  }
+}
+
+.education-text-duration {
+  font-size: 16px;
+  font-weight: 400;
+  color: $titleColor;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+
+  .dark-mode & {
+    color: lighten($titleColor, 25%);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .education-text-subHeader {
+    font-size: 17px;
+    margin: 0.25rem 0 0.5rem 0;
+  }
+
+  .education-text-duration {
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-text-subHeader {
+    font-size: 15px;
+  }
+
+  .education-text-duration {
+    font-size: 13px;
   }
 }
