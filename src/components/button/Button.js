@@ -1,19 +1,19 @@
 import React from "react";
 import "./Button.scss";
 
-export default function Button({ 
-  text, 
-  className = "", 
-  href, 
-  newTab = false, 
+export default function Button({
+  text,
+  className = "",
+  href,
+  newTab = false,
   variant = "primary",
   size = "medium",
   icon = null,
   disabled = false,
   loading = false,
-  onClick 
+  onClick
 }) {
-  const handleClick = (e) => {
+  const handleClick = e => {
     if (disabled || loading) {
       e.preventDefault();
       return;
@@ -30,9 +30,7 @@ export default function Button({
           <div className="loader-spinner"></div>
         </div>
       )}
-      {icon && !loading && (
-        <span className="button-icon">{icon}</span>
-      )}
+      {icon && !loading && <span className="button-icon">{icon}</span>}
       <span className="button-text">{text}</span>
       <span className="button-hover-effect"></span>
       <span className="button-ripple-effect"></span>
@@ -43,8 +41,8 @@ export default function Button({
     modern-button 
     ${variant} 
     ${size} 
-    ${loading ? 'loading' : ''} 
-    ${disabled ? 'disabled' : ''} 
+    ${loading ? "loading" : ""} 
+    ${disabled ? "disabled" : ""} 
     ${className}
   `.trim();
 

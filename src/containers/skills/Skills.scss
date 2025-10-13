@@ -4,7 +4,7 @@
 .skills-section {
   padding: 80px 0;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  
+
   &.dark-mode {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   }
@@ -24,7 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   img {
     max-width: 100%;
     height: auto;
@@ -45,7 +45,7 @@
   background-clip: text;
   margin-bottom: 1rem;
   line-height: 1.2;
-  
+
   .dark-mode & {
     background: linear-gradient(135deg, #3498db 0%, #667eea 100%);
     -webkit-background-clip: text;
@@ -58,7 +58,7 @@
   color: $subTitle;
   line-height: 1.6;
   margin-bottom: 2rem;
-  
+
   .dark-mode & {
     color: #94a3b8;
   }
@@ -90,18 +90,18 @@
   text-align: center;
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     border-color: $buttonColor;
   }
-  
+
   .dark-mode & {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: $textColorDark;
-    
+
     &:hover {
       border-color: #60a5fa;
     }
@@ -118,7 +118,7 @@
   .skills-container {
     gap: 40px;
   }
-  
+
   .skills-title {
     font-size: 2.5rem;
   }
@@ -128,31 +128,31 @@
   .skills-section {
     padding: 60px 0;
   }
-  
+
   .skills-container {
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
   }
-  
+
   .skills-title {
     font-size: 2.25rem;
   }
-  
+
   .skills-subtitle {
     font-size: 1.125rem;
   }
-  
+
   .skills-list {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .skill-item {
     font-size: 1rem;
     padding: 1.25rem;
   }
-  
+
   .skills-visual {
     order: -1;
   }
@@ -162,25 +162,25 @@
   .skills-section {
     padding: 40px 0;
   }
-  
+
   .skills-container {
     padding: 0 15px;
     gap: 30px;
   }
-  
+
   .skills-list-container {
     padding: 0 15px;
     margin-top: 40px;
   }
-  
+
   .skills-title {
     font-size: 2rem;
   }
-  
+
   .skills-subtitle {
     font-size: 1rem;
   }
-  
+
   .skill-item {
     font-size: 0.95rem;
     padding: 1rem;

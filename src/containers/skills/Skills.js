@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 import "./Skills.scss";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
-import { illustration, skillsSection } from "../../portfolio";
-import { Fade } from "react-reveal";
+import {illustration, skillsSection} from "../../portfolio";
+import {Fade} from "react-reveal";
 import codingPerson from "../../assets/lottie/codingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Skills() {
-  const { isDark } = useContext(StyleContext);
+  const {isDark} = useContext(StyleContext);
   if (!skillsSection.display) {
     return null;
   }
@@ -29,17 +29,13 @@ export default function Skills() {
         </Fade>
         <Fade right duration={1000}>
           <div className="skills-content">
-            <h1 className="skills-title">
-              {skillsSection.title}
-            </h1>
-            <p className="skills-subtitle">
-              {skillsSection.subTitle}
-            </p>
+            <h1 className="skills-title">{skillsSection.title}</h1>
+            <p className="skills-subtitle">{skillsSection.subTitle}</p>
             <SoftwareSkill />
           </div>
         </Fade>
       </div>
-      
+
       {/* Skills list moved below the main content */}
       <Fade bottom duration={1000}>
         <div className="skills-list-container">

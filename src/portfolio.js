@@ -20,87 +20,99 @@ const illustration = {
 };
 
 const greeting = {
-username: "Navin",
-title: "Hi all, I'm Navin Chaudhary",
-subTitle: emoji("A PHP Laravel Developer 💻 with expertise in building dynamic, secure, and scalable web applications using Laravel, MySQL, React, and modern frontend frameworks. Focused on clean code and high-quality solutions."),
-resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
-displayGreeting: true
+  username: "Navin",
+  title: "Hi all, I'm Navin Chaudhary",
+  subTitle: emoji(
+    "A PHP Laravel Developer 💻 with expertise in building dynamic, secure, and scalable web applications using Laravel, MySQL, React, and modern frontend frameworks. Focused on clean code and high-quality solutions."
+  ),
+  resumeLink:
+    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+  displayGreeting: true
 };
-
 
 // Social Media Links
 
 const socialMediaLinks = {
-github: "https://github.com/Navin1012",
-linkedin: "https://www.linkedin.com/in/navin1012/",
-gmail: "nc13760@gmail.com",
-instagram: "https://www.instagram.com/navin_chaudhary___?igsh=OXZrbHpsc3IwdzBl",
-display: true
+  github: "https://github.com/Navin1012",
+  linkedin: "https://www.linkedin.com/in/navin1012/",
+  gmail: "nc13760@gmail.com",
+  instagram:
+    "https://www.instagram.com/navin_chaudhary___?igsh=OXZrbHpsc3IwdzBl",
+  display: true
 };
 
 // Skills Section
 
 const skillsSection = {
-title: "What I do",
-subTitle: "PASSIONATE LARAVEL DEVELOPER WHO BUILDS SCALABLE AND EFFICIENT WEB APPLICATIONS",
-skills: [
-emoji("⚡ Build robust backend systems and RESTful APIs using PHP & Laravel"),
-emoji("⚡ Design and manage MySQL / MongoDB databases with optimized queries"),
-emoji("⚡ Develop responsive front-end interfaces using React.js / Blade templates"),
-emoji("⚡ Implement authentication, roles, and permissions with Laravel Breeze, Jetstream, and Sanctum"),
-emoji("⚡ Integrate third-party APIs, payment gateways, and AWS/Firebase services"),
-emoji("⚡ Manage deployment, version control, and CI/CD pipelines")
-],
-softwareSkills: [
-{ skillName: "PHP", fontAwesomeClassname: "fab fa-php" },
-{ skillName: "Laravel", fontAwesomeClassname: "fab fa-laravel" },
-{ skillName: "HTML5", fontAwesomeClassname: "fab fa-html5" },
-{ skillName: "CSS3", fontAwesomeClassname: "fab fa-css3-alt" },
-{ skillName: "JavaScript", fontAwesomeClassname: "fab fa-js" },
-{ skillName: "ReactJS", fontAwesomeClassname: "fab fa-react" },
-{ skillName: "MySQL", fontAwesomeClassname: "fas fa-database" },
-{ skillName: "MongoDB", fontAwesomeClassname: "fas fa-leaf" },
-{ skillName: "Git", fontAwesomeClassname: "fab fa-git-alt" },
-{ skillName: "GitHub", fontAwesomeClassname: "fab fa-github" },
-{ skillName: "Tailwind CSS", fontAwesomeClassname: "fas fa-paint-brush" },
-{ skillName: "VS Code", fontAwesomeClassname: "fas fa-code" },
-{ skillName: "AWS", fontAwesomeClassname: "fab fa-aws" }
-],
-display: true
+  title: "What I do",
+  subTitle:
+    "PASSIONATE LARAVEL DEVELOPER WHO BUILDS SCALABLE AND EFFICIENT WEB APPLICATIONS",
+  skills: [
+    emoji(
+      "⚡ Build robust backend systems and RESTful APIs using PHP & Laravel"
+    ),
+    emoji(
+      "⚡ Design and manage MySQL / MongoDB databases with optimized queries"
+    ),
+    emoji(
+      "⚡ Develop responsive front-end interfaces using React.js / Blade templates"
+    ),
+    emoji(
+      "⚡ Implement authentication, roles, and permissions with Laravel Breeze, Jetstream, and Sanctum"
+    ),
+    emoji(
+      "⚡ Integrate third-party APIs, payment gateways, and AWS/Firebase services"
+    ),
+    emoji("⚡ Manage deployment, version control, and CI/CD pipelines")
+  ],
+  softwareSkills: [
+    {skillName: "PHP", fontAwesomeClassname: "fab fa-php"},
+    {skillName: "Laravel", fontAwesomeClassname: "fab fa-laravel"},
+    {skillName: "HTML5", fontAwesomeClassname: "fab fa-html5"},
+    {skillName: "CSS3", fontAwesomeClassname: "fab fa-css3-alt"},
+    {skillName: "JavaScript", fontAwesomeClassname: "fab fa-js"},
+    {skillName: "ReactJS", fontAwesomeClassname: "fab fa-react"},
+    {skillName: "MySQL", fontAwesomeClassname: "fas fa-database"},
+    {skillName: "MongoDB", fontAwesomeClassname: "fas fa-leaf"},
+    {skillName: "Git", fontAwesomeClassname: "fab fa-git-alt"},
+    {skillName: "GitHub", fontAwesomeClassname: "fab fa-github"},
+    {skillName: "Tailwind CSS", fontAwesomeClassname: "fas fa-paint-brush"},
+    {skillName: "VS Code", fontAwesomeClassname: "fas fa-code"},
+    {skillName: "AWS", fontAwesomeClassname: "fab fa-aws"}
+  ],
+  display: true
 };
-
 
 // Education Section
 
 const educationInfo = {
-display: true,
-schools: [
-{
-schoolName: "Gokul Global University",
-logo: require("./assets/images/ggu.png"),
-subHeader: "Master of Computer Applications (MCA)",
-duration: "2023 - 2025",
-desc: "Focused on advanced software development, database management, and full-stack web technologies.",
-descBullets: [
-"Specialized in web application development using PHP Laravel and React.js",
-"Worked on real-world academic projects involving RESTful API integration"
-]
-}
-]
+  display: true,
+  schools: [
+    {
+      schoolName: "Gokul Global University",
+      logo: require("./assets/images/ggu.png"),
+      subHeader: "Master of Computer Applications (MCA)",
+      duration: "2023 - 2025",
+      desc: "Focused on advanced software development, database management, and full-stack web technologies.",
+      descBullets: [
+        "Specialized in web application development using PHP Laravel and React.js",
+        "Worked on real-world academic projects involving RESTful API integration"
+      ]
+    }
+  ]
 };
-
 
 // Your top 3 proficient stacks/tech experience
 
 const techStack = {
-viewSkillBars: true,
-experience: [
-{ Stack: "Frontend/Design", progressPercentage: "70%" },
-{ Stack: "Backend", progressPercentage: "90%" },
-{ Stack: "Programming", progressPercentage: "80%" }
-],
-displayCodersrank: false
-}
+  viewSkillBars: true,
+  experience: [
+    {Stack: "Frontend/Design", progressPercentage: "70%"},
+    {Stack: "Backend", progressPercentage: "90%"},
+    {Stack: "Programming", progressPercentage: "80%"}
+  ],
+  displayCodersrank: false
+};
 
 // Work experience section
 
@@ -240,17 +252,29 @@ const achievementSection = {
 // Blogs Section
 
 const blogSection = {
-title: "Blogs",
-subtitle: "As a PHP Laravel Developer, I love sharing tutorials, tips, and real-world project experiences.",
-displayMediumBlogs: "false",
-blogs: [
-{ title: "Building RESTful APIs with Laravel 10", description: "Learn to design secure, scalable REST APIs in Laravel 10 using best practices." },
-{ title: "Optimizing Laravel Performance for Production", description: "Guide on caching, query optimization, and performance tuning in Laravel." },
-{ title: "Integrating React with Laravel using Inertia.js", description: "Step-by-step guide for building full-stack apps with Laravel + React." }
-],
-display: true
+  title: "Blogs",
+  subtitle:
+    "As a PHP Laravel Developer, I love sharing tutorials, tips, and real-world project experiences.",
+  displayMediumBlogs: "false",
+  blogs: [
+    {
+      title: "Building RESTful APIs with Laravel 10",
+      description:
+        "Learn to design secure, scalable REST APIs in Laravel 10 using best practices."
+    },
+    {
+      title: "Optimizing Laravel Performance for Production",
+      description:
+        "Guide on caching, query optimization, and performance tuning in Laravel."
+    },
+    {
+      title: "Integrating React with Laravel using Inertia.js",
+      description:
+        "Step-by-step guide for building full-stack apps with Laravel + React."
+    }
+  ],
+  display: true
 };
-
 
 // Talks Sections
 
@@ -294,12 +318,12 @@ const resumeSection = {
 };
 
 const contactInfo = {
-title: emoji("Contact Me ☎️"),
-subtitle: "Discuss a Laravel project, collaborate, or just say hi! My inbox is always open.",
-number: "+91-9313404276",
-email_address: "nc13760@gmail.com"
+  title: emoji("Contact Me ☎️"),
+  subtitle:
+    "Discuss a Laravel project, collaborate, or just say hi! My inbox is always open.",
+  number: "+91-9313404276",
+  email_address: "nc13760@gmail.com"
 };
-
 
 // Twitter Section
 

@@ -45,15 +45,13 @@
   font-weight: 600;
   margin: 0.2rem 0;
   color: $textColor;
-padding: 9px;
-  border-radius: 50px;  /* Simple rounded corners */
-border-radius: 10px;  /* More rounded */
-border-radius: 25px;  /* Pill shaped, elongated cards/buttons */
+  padding: 9px;
+  border-radius: 50px; /* Simple rounded corners */
+  border-radius: 10px; /* More rounded */
+  border-radius: 25px; /* Pill shaped, elongated cards/buttons */
 
-  
   .dark-mode & {
     color: $textColorDark;
-   
   }
 }
 
@@ -62,10 +60,9 @@ border-radius: 25px;  /* Pill shaped, elongated cards/buttons */
   margin: 0.2rem 0;
   color: $titleColor;
   padding: 5px;
-    border-radius: 50px;  /* Simple rounded corners */
-border-radius: 10px;  /* More rounded */
-border-radius: 25px;  /* Pill shaped, elongated cards/buttons */
-
+  border-radius: 50px; /* Simple rounded corners */
+  border-radius: 10px; /* More rounded */
+  border-radius: 25px; /* Pill shaped, elongated cards/buttons */
 }
 
 .education-text-desc {

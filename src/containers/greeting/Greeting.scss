@@ -51,13 +51,13 @@
   font-weight: 600;
   margin-bottom: 20px;
   backdrop-filter: blur(10px);
-  
+
   &.light {
     background: rgba($buttonColor, 0.1);
     color: $buttonColor;
     border: 1px solid rgba($buttonColor, 0.2);
   }
-  
+
   &.dark {
     background: rgba(255, 255, 255, 0.1);
     color: white;
@@ -93,7 +93,7 @@
     letter-spacing: 0.8px;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -4px;
       left: 0;
@@ -125,17 +125,34 @@
 }
 
 @keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  10%, 30%, 40% { transform: rotate(-10deg); }
-  20% { transform: rotate(12deg); }
-  50% { transform: rotate(0deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  30%,
+  40% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
 }
 
 /* Animated gradient flow inside name */
 @keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Dark mode tweak for better contrast */
@@ -168,7 +185,7 @@
     animation: gradientFlow 5s ease infinite;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -4px;
       left: 0;
@@ -210,11 +227,16 @@
 
 /* 🌈 Shared Keyframes */
 @keyframes gradientFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-
 
 .greeting-text-p {
   font-size: 1.3rem;
@@ -240,7 +262,7 @@
   font-weight: 500;
   border: 1px solid rgba($buttonColor, 0.2);
   transition: all 0.3s ease;
-  
+
   &:hover {
     background: $buttonColor;
     color: white;
@@ -260,7 +282,8 @@
   text-decoration: none;
 }
 
-.primary-btn, .secondary-btn {
+.primary-btn,
+.secondary-btn {
   padding: 12px 28px;
   border-radius: 8px;
   font-weight: 600;
@@ -272,7 +295,7 @@
 .primary-btn {
   background: $buttonColor;
   color: white;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba($buttonColor, 0.3);
@@ -283,7 +306,7 @@
   background: transparent;
   color: $buttonColor;
   border: 2px solid $buttonColor;
-  
+
   &:hover {
     background: $buttonColor;
     color: white;
@@ -296,7 +319,8 @@
   position: relative;
 }
 
-.lottie-container, .image-container {
+.lottie-container,
+.image-container {
   position: relative;
   max-width: 100%;
   height: auto;
@@ -306,7 +330,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  
+
   img {
     max-width: 100%;
     height: auto;
@@ -329,19 +353,19 @@
   position: absolute;
   font-size: 1.5rem;
   animation: float 3s ease-in-out infinite;
-  
+
   &.element-1 {
     top: 10%;
     right: 20%;
     animation-delay: 0s;
   }
-  
+
   &.element-2 {
     bottom: 30%;
     left: 10%;
     animation-delay: 1s;
   }
-  
+
   &.element-3 {
     top: 40%;
     right: 10%;
@@ -350,7 +374,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -396,7 +421,7 @@
   .greeting-text {
     font-size: 3rem;
   }
-  
+
   .greeting-text-p {
     font-size: 1.2rem;
   }
@@ -407,40 +432,40 @@
     margin-top: 1rem;
     min-height: auto;
   }
-  
+
   .greeting-main {
     flex-direction: column-reverse;
     text-align: center;
     gap: 20px;
   }
-  
+
   .greeting-text {
     font-size: 2.2rem;
   }
-  
+
   .greeting-text-p {
     font-size: 1.1rem;
     line-height: 1.5;
   }
-  
+
   .button-greeting-div {
     justify-content: center;
     gap: 12px;
   }
-  
+
   .tech-stack-pills {
     justify-content: center;
   }
-  
+
   .professional-badge {
     margin: 0 auto 20px;
   }
-  
+
   .greeting-image-div {
     max-width: 300px;
     margin: 0 auto;
   }
-  
+
   .floating-element {
     display: none; /* Hide floating elements on mobile */
   }
@@ -450,22 +475,23 @@
   .greeting-text {
     font-size: 1.8rem;
   }
-  
+
   .greeting-text-p {
     font-size: 1rem;
   }
-  
+
   .button-greeting-div {
     flex-direction: column;
     align-items: center;
   }
-  
-  .primary-btn, .secondary-btn {
+
+  .primary-btn,
+  .secondary-btn {
     padding: 10px 24px;
     font-size: 14px;
     width: 200px;
   }
-  
+
   .tech-pill {
     font-size: 0.8rem;
     padding: 4px 10px;
@@ -479,12 +505,12 @@
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
-  
+
   .tech-pill {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    
+
     &:hover {
       background: white;
       color: $buttonColor;
@@ -503,7 +529,7 @@
   margin-bottom: 2rem;
   flex-wrap: wrap;
   justify-content: flex-start;
-  
+
   @media (max-width: 768px) {
     justify-content: center;
     gap: 0.8rem;
@@ -527,7 +553,7 @@
   cursor: pointer;
   min-width: 180px;
   justify-content: center;
-  
+
   @media (max-width: 480px) {
     padding: 0.9rem 1.5rem;
     font-size: 1rem;
@@ -539,20 +565,20 @@
   background: linear-gradient(135deg, $buttonColor, #667eea);
   color: white;
   box-shadow: 0 4px 15px rgba($buttonColor, 0.3);
-  
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba($buttonColor, 0.4);
-    
+
     .btn-icon {
       transform: scale(1.1) rotate(5deg);
     }
-    
+
     .hover-effect {
       transform: translateX(0%);
     }
   }
-  
+
   &:active {
     transform: translateY(-1px);
   }
@@ -563,18 +589,18 @@
   color: $textColor;
   border: 2px solid rgba($buttonColor, 0.3);
   position: relative;
-  
+
   &:hover {
     background: rgba($buttonColor, 0.05);
     border-color: $buttonColor;
     transform: translateY(-3px);
     box-shadow: 0 5px 20px rgba($buttonColor, 0.2);
-    
+
     .download-arrow {
       transform: translateY(3px);
       opacity: 1;
     }
-    
+
     .btn-icon {
       transform: scale(1.1);
     }
@@ -606,7 +632,12 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: transform 0.6s ease;
   transform: translateX(-100%);
 }
@@ -621,11 +652,11 @@
   gap: 0.8rem;
   justify-content: flex-start;
   flex-wrap: wrap;
-  
+
   @media (max-width: 768px) {
     justify-content: center;
   }
-  
+
   @media (max-width: 480px) {
     gap: 0.5rem;
   }
@@ -644,22 +675,22 @@
   font-weight: 500;
   transition: all 0.3s ease;
   border: 1px solid transparent;
-  
+
   &:hover {
     background: rgba($buttonColor, 0.15);
     border-color: rgba($buttonColor, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-  
+
   span:first-child {
     font-size: 1rem;
   }
-  
+
   @media (max-width: 480px) {
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
-    
+
     span:first-child {
       font-size: 0.9rem;
     }
@@ -670,21 +701,21 @@
 .dark-mode {
   .secondary-cta {
     color: white;
-    border-color: rgba(255,255,255,0.2);
-    
+    border-color: rgba(255, 255, 255, 0.2);
+
     &:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.4);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
     }
   }
-  
+
   .quick-btn {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     color: white;
-    
+
     &:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(255,255,255,0.3);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
     }
   }
 }
@@ -731,20 +762,19 @@
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .cta-btn {
     min-width: auto;
     justify-content: center;
   }
-  
+
   .quick-actions {
     justify-content: space-around;
   }
-  
+
   .quick-btn {
     flex: 1;
     justify-content: center;
     min-width: 80px;
   }
 }
-
