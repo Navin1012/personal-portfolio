@@ -3,20 +3,50 @@
 #topButton {
   visibility: hidden;
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 25px;
+  right: 25px;
   z-index: 99;
   border: none;
   outline: none;
-  background-color: $buttonColor;
-  color: white;
+  background: linear-gradient(135deg, $buttonColor, darken($buttonColor, 10%));
+  color: #fff;
   cursor: pointer;
-  padding: 15px;
-  border-radius: 15px;
-  font-size: 25px;
+  padding: 14px 16px;
+  border-radius: 50%;
+  font-size: 22px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(15px);
 }
 
+/* Show with fade + lift animation */
+#topButton.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover glow and scale effect */
 #topButton:hover {
-  background-color: $topButtonHover;
-  transition: all ease-in-out 0.2s;
+  background: linear-gradient(135deg, lighten($buttonColor, 5%), $topButtonHover);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 15px rgba($buttonColor, 0.5);
+  transform: scale(1.1);
+}
+
+/* Optional pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($buttonColor, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba($buttonColor, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($buttonColor, 0);
+  }
+}
+
+#topButton.pulse {
+  animation: pulse 2s infinite;
 }
