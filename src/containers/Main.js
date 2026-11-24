@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from "react";
-import developerArtwork from "../assets/images/developerActivity.svg";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
@@ -81,9 +80,6 @@ const Main = () => {
         <main id="main-content" tabIndex={-1}>
           <Greeting />
           <Skills />
-          <div className="scroll-showcase" aria-hidden="true">
-         
-          </div>
           <StackProgress />
           <Education />
           <WorkExperience />
