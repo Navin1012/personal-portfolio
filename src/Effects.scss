@@ -1,0 +1,125 @@
+.hero-actions .action,
+.contact-intro .action {
+  --star-radius: 0.5rem;
+  --star-fill: var(--surface);
+  --star-border: linear-gradient(
+    120deg,
+    #d351b6,
+    #8063db 48%,
+    #5aaef0 82%,
+    #6fd6f7
+  );
+  position: relative;
+  border-color: transparent;
+  border-radius: var(--star-radius);
+  background: linear-gradient(var(--star-fill), var(--star-fill)) padding-box,
+    var(--star-border) border-box;
+
+  &:hover {
+    --star-fill: var(--hover);
+  }
+
+  &.action-primary {
+    --star-fill: #191329;
+    color: #fff;
+
+    &:hover {
+      --star-fill: #302045;
+    }
+  }
+}
+
+@supports (offset-path: inset(0 round 0.5rem)) {
+  .hero-actions .action::after,
+  .contact-intro .action::after {
+    position: absolute;
+    inset: 0;
+    width: 1.45rem;
+    height: 0.2rem;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #f58ce8 50%,
+      #fef0ff 78%,
+      #a6f3fa
+    );
+    border-radius: 50%;
+    filter: drop-shadow(0 0 4px #ea6fe0) drop-shadow(0 0 3px #6fd6f7);
+    offset-path: inset(0 round var(--star-radius));
+    content: "";
+    animation: star-lap 3.8s linear infinite;
+  }
+
+  .hero-actions .action:not(.action-primary)::after {
+    animation-delay: -1.8s;
+  }
+}
+
+@keyframes star-lap {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-actions .action::after,
+  .contact-intro .action::after {
+    display: none;
+  }
+}
+
+.scroll-showcase {
+  background: #171225;
+  overflow: hidden;
+  clip-path: inset(0 round 0);
+  border-block: 1px solid var(--line);
+}
+
+.scroll-showcase__image {
+  display: grid;
+  block-size: clamp(12rem, 30vw, 25rem);
+  place-items: center;
+  background: radial-gradient(
+      ellipse at 73% 46%,
+      rgba(55, 186, 232, 0.26),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 29% 65%,
+      rgba(219, 72, 176, 0.31),
+      transparent 53%
+    ),
+    #171225;
+
+  img {
+    width: auto;
+    height: 84%;
+    max-width: 88%;
+    min-height: 0;
+    object-fit: contain;
+    filter: brightness(1.3) drop-shadow(0 15px 36px rgba(13, 8, 21, 0.55));
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-showcase {
+      animation: showcase-expand linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+  }
+}
+
+@keyframes showcase-expand {
+  from {
+    clip-path: inset(0 18% round 1.25rem);
+  }
+  to {
+    clip-path: inset(0 round 0);
+  }
+}

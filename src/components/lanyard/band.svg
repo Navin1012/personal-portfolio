@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="256" viewBox="0 0 96 256">
+  <path fill="#141c31" d="M0 0h96v256H0z"/>
+  <path d="M10 0v256m76-256v256" stroke="#7798cc" stroke-width="3"/>
+  <text x="48" y="71" fill="#d7e3fa" font-family="Arial,sans-serif" font-weight="700" font-size="24" text-anchor="middle">NC</text>
+  <text x="48" y="198" fill="#d7e3fa" font-family="Arial,sans-serif" font-weight="700" font-size="24" text-anchor="middle">NC</text>
+</svg>

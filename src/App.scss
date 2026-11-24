@@ -1,5 +1,8 @@
 :root {
   --page: #fafafa;
+  --spotlight-pink: rgba(219, 55, 166, 0.21);
+  --spotlight-blue: rgba(32, 153, 221, 0.23);
+  --spotlight-violet: rgba(124, 75, 235, 0.16);
   --surface: #fff;
   --text: #111;
   --secondary: #525252;
@@ -25,6 +28,9 @@
 
 [data-theme="dark"] {
   --page: #0b0b0b;
+  --spotlight-pink: rgba(238, 89, 208, 0.28);
+  --spotlight-blue: rgba(90, 174, 240, 0.29);
+  --spotlight-violet: rgba(153, 104, 255, 0.24);
   --surface: #151515;
   --text: #f5f5f5;
   --secondary: #a3a3a3;
@@ -183,7 +189,7 @@ h3 {
   grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
-  padding-block: clamp(2.75rem, 5.75vw, 5.5rem);
+  padding-block: clamp(1.75rem, 3.5vw, 3.25rem) clamp(2.5rem, 5vw, 4.5rem);
 }
 .hero h1 {
   max-width: 9ch;
@@ -636,5 +642,65 @@ h3 {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+.portfolio-site {
+  isolation: isolate;
+}
+
+.pointer-light {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .pointer-light {
+    display: block;
+    position: fixed;
+    z-index: -1;
+    inset: -12rem auto auto -12rem;
+    width: 24rem;
+    height: 24rem;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(
+        ellipse at 37% 40%,
+        var(--spotlight-pink),
+        transparent 42%
+      ),
+      radial-gradient(
+        ellipse at 61% 56%,
+        var(--spotlight-blue),
+        transparent 44%
+      ),
+      radial-gradient(closest-side, var(--spotlight-violet), transparent);
+    transition: opacity var(--interaction-duration);
+  }
+  [data-pointer] .pointer-light {
+    opacity: 1;
+  }
+
+  :is(.capability, .article-card, .education-entry, .contact-card) {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      pointer-events: none;
+      padding: 1px;
+      border-radius: inherit;
+      background: radial-gradient(
+        8rem circle at var(--local-x, 50%) var(--local-y, 50%),
+        var(--spotlight-blue),
+        var(--spotlight-pink) 48%,
+        transparent
+      );
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity var(--interaction-duration);
+    }
+    &[data-lit]::after {
+      opacity: 1;
+    }
   }
 }

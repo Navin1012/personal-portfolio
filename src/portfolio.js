@@ -24,7 +24,7 @@ const greeting = {
   title: "Navin Chaudhary",
   role: "PHP Laravel Developer",
   subTitle:
-    "I build dynamic, secure, and scalable web applications using Laravel, MySQL, React, and modern frontend frameworks. Focused on clean code and high-quality solutions.",
+    "I build Laravel APIs and web applications, from MySQL queries and authentication to responsive interfaces in React and Blade.",
   resumeLink: `${process.env.PUBLIC_URL}/Resume.pdf`,
   displayGreeting: true
 };
@@ -44,22 +44,23 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I Do",
-  subTitle: "I build scalable, efficient web applications with Laravel.",
+  subTitle:
+    "My work spans database design, application development, and deployment.",
   skills: [
     {
-      title: "Backend & APIs",
+      title: "Laravel APIs",
       icon: "fas fa-server",
       description:
-        "Build robust backend systems and RESTful APIs using PHP and Laravel."
+        "Build REST APIs for web and mobile apps, including orders, payments, and authentication."
     },
     {
-      title: "Databases",
+      title: "Database Optimization",
       icon: "fas fa-database",
       description:
-        "Design and manage MySQL and MongoDB databases with optimized queries."
+        "Model application data in MySQL and MongoDB, and tune queries."
     },
     {
-      title: "Frontend Development",
+      title: "React & Blade Interfaces",
       icon: "fas fa-code",
       description:
         "Develop responsive interfaces using React.js and Blade templates."
@@ -74,7 +75,7 @@ const skillsSection = {
       title: "Service Integrations",
       icon: "fas fa-plug",
       description:
-        "Integrate third-party APIs, payment gateways, and AWS and Firebase services."
+        "Connect payment gateways, shipping APIs, and cloud services."
     },
     {
       title: "Deployment & CI/CD",
@@ -271,7 +272,7 @@ const achievementSection = {
 const blogSection = {
   title: "Blogs",
   subtitle:
-    "As a PHP Laravel Developer, I love sharing tutorials, tips, and real-world project experiences.",
+    "Notes on Laravel APIs, query performance, and building interfaces with React.",
   displayMediumBlogs: "false",
   blogs: [
     {

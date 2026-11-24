@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="591" height="1004" viewBox="0 0 591 1004">
+  <rect width="591" height="1004" fill="#f3f3f3"/>
+  <path d="M0 224 591 0v174L0 396z" fill="#e6e6e6"/>
+  <path d="M0 833 591 667v337H0z" fill="#e4e4e5"/>
+  <path d="M0 877 591 755v249H0z" fill="#191a1f"/>
+  <g fill="#191a1f" font-family="Arial, sans-serif">
+    <rect x="54" y="107" width="96" height="96" rx="14"/>
+    <text x="102" y="168" text-anchor="middle" fill="#f3f3f3" font-size="34" font-weight="700">NC</text>
+    <text x="54" y="294" font-size="20" letter-spacing="4" font-weight="700">SOFTWARE DEVELOPER</text>
+    <text x="49" y="414" font-size="103" font-weight="800" letter-spacing="-4">NAVIN</text>
+    <text x="50" y="481" font-size="59" font-weight="800" letter-spacing="-2">CHAUDHARY</text>
+    <path d="M55 544h481" stroke="#191a1f" stroke-width="2"/>
+    <text x="54" y="607" font-size="35" font-weight="700">PHP Laravel Developer</text>
+    <text x="54" y="661" font-size="22" fill="#47484d" letter-spacing="1">Laravel / MySQL / React</text>
+    <text x="54" y="935" fill="#f4f4f4" font-size="27" font-weight="700">navinchaudhary.netlify.app</text>
+  </g>
+</svg>

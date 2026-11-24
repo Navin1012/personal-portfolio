@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from "react";
+import developerArtwork from "../assets/images/developerActivity.svg";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
@@ -15,12 +16,15 @@ import Education from "./education/Education";
 import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
 import {StyleProvider} from "../contexts/StyleContext";
+import usePointerLight from "../hooks/usePointerLight";
 import usePortfolioMotion from "../hooks/usePortfolioMotion";
 import {useLocalStorage} from "../hooks/useLocalStorage";
+import "../Effects.scss";
 
 const Main = () => {
   const site = useRef(null);
   usePortfolioMotion(site);
+  usePointerLight(site);
   const darkPref = window.matchMedia?.("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage(
     "isDark",
@@ -69,6 +73,7 @@ const Main = () => {
         id="page-top"
         tabIndex={-1}
       >
+        <div className="pointer-light" aria-hidden="true" />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
@@ -76,6 +81,9 @@ const Main = () => {
         <main id="main-content" tabIndex={-1}>
           <Greeting />
           <Skills />
+          <div className="scroll-showcase" aria-hidden="true">
+         
+          </div>
           <StackProgress />
           <Education />
           <WorkExperience />
@@ -86,6 +94,7 @@ const Main = () => {
           <Talks />
           <Twitter />
           <Podcast />
+
           <Profile />
         </main>
         <Footer />

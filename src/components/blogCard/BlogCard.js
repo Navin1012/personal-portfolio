@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function BlogCard({blog}) {
+export default function BlogCard({blog, id}) {
   return (
-    <article className="panel article-card">
+    <article id={id} className="panel article-card" tabIndex={-1}>
       <h3>{blog.title}</h3>
       <p>{blog.description}</p>
       {blog.url && (

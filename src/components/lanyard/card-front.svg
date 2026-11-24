@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="675" viewBox="0 0 480 675">
+  <defs><linearGradient id="ink" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#0d1427"/><stop offset="1" stop-color="#283350"/></linearGradient></defs>
+  <rect width="480" height="675" fill="url(#ink)"/>
+  <rect x="29" y="29" width="422" height="617" rx="26" fill="none" stroke="#8099c4" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M55 144h370M55 492h370" stroke="#8099c4" stroke-opacity=".55" stroke-width="2"/>
+  <text x="240" y="115" fill="#c5d6f6" font-family="Arial,sans-serif" font-size="20" letter-spacing="5" text-anchor="middle">DEVELOPER PORTFOLIO</text>
+  <circle cx="240" cy="302" r="106" fill="#202e4a" stroke="#8aabde" stroke-width="2"/>
+  <text x="240" y="332" fill="#eef3ff" font-family="Arial,sans-serif" font-weight="700" font-size="91" text-anchor="middle">NC</text>
+  <text x="240" y="554" fill="#eef3ff" font-family="Arial,sans-serif" font-weight="700" font-size="39" text-anchor="middle">Navin Chaudhary</text>
+  <text x="240" y="600" fill="#c5d6f6" font-family="Arial,sans-serif" font-size="23" text-anchor="middle">PHP Laravel Developer</text>
+</svg>

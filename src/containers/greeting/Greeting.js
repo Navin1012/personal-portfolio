@@ -1,7 +1,9 @@
 import React from "react";
-import artwork from "../../assets/images/manOnTable.svg";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {greeting} from "../../portfolio";
+import PortfolioLanyard from "../../components/lanyard/PortfolioLanyard";
+import HeroName from "./HeroName";
+import "./HeroEffects.scss";
 
 const technologies = ["Laravel", "PHP", "MySQL", "React", "JavaScript"];
 
@@ -11,7 +13,7 @@ export default function Greeting() {
   return (
     <section className="frame hero" id="greeting" aria-labelledby="hero-title">
       <div className="hero-content">
-        <h1 id="hero-title">{greeting.title}</h1>
+        <HeroName name={greeting.title} />
         <p className="hero-role">{greeting.role}</p>
         <p className="hero-intro">{greeting.subTitle}</p>
         <div className="hero-actions">
@@ -36,9 +38,7 @@ export default function Greeting() {
         </ul>
         <SocialMedia />
       </div>
-      <div className="hero-art">
-        <img src={artwork} alt="" />
-      </div>
+      <PortfolioLanyard />
     </section>
   );
 }

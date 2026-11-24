@@ -1,0 +1,117 @@
+.hero h1.hero-neon {
+  position: relative;
+  color: #303b55;
+  letter-spacing: -0.035em;
+
+  .neon-logo-container {
+    position: absolute;
+    inset: -0.15em -0.23em;
+    width: auto;
+    height: auto;
+    opacity: 0;
+    filter: drop-shadow(0 0 0.17em #6376a35c);
+  }
+
+  .neon-logo-container[data-neon-ready] {
+    opacity: 1;
+
+    + .hero-neon__text {
+      opacity: 0;
+    }
+  }
+}
+
+.hero-neon__text {
+  display: block;
+  white-space: pre-line;
+}
+
+[data-theme="dark"] .hero h1.hero-neon {
+  color: #dce4f3;
+
+  .neon-logo-container {
+    filter: drop-shadow(0 0 0.19em #9db7ed60);
+  }
+}
+
+@media (forced-colors: active) {
+  [data-theme] .hero h1.hero-neon {
+    color: CanvasText;
+
+    .neon-logo-container {
+      display: none;
+    }
+
+    .neon-logo-container[data-neon-ready] + .hero-neon__text {
+      opacity: 1;
+    }
+  }
+}
+
+.hero-art.hero-dither {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #6966ab70;
+  background: radial-gradient(circle at 20% 15%, #d351b625, transparent 46%),
+    radial-gradient(circle at 83% 80%, #5aaef02e, transparent 48%), #121646;
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-image: radial-gradient(#a6f3fa38 1px, transparent 1px);
+    background-size: 9px 9px;
+    content: "";
+  }
+
+  .hero-dither__visual {
+    position: relative;
+    width: 100%;
+  }
+
+  img {
+    display: block;
+    height: auto;
+    filter: saturate(1.22);
+  }
+
+  .hero-dither__veil,
+  .hero-dither__color {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .hero-dither__veil {
+    image-rendering: pixelated;
+  }
+
+  &[data-dither-ready] {
+    .hero-dither__visual > img:first-child {
+      visibility: hidden;
+    }
+
+    .hero-dither__veil {
+      opacity: 1;
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero-dither[data-dither-ready] .hero-dither__color {
+    mask-image: radial-gradient(
+      circle clamp(4rem, 12vw, 9rem) at var(--veil-x, 50%) var(--veil-y, 50%),
+      #000 40%,
+      transparent 100%
+    );
+    transition: opacity 240ms ease;
+  }
+
+  .hero-dither[data-dither-ready][data-dither-active] .hero-dither__color {
+    opacity: 1;
+  }
+}

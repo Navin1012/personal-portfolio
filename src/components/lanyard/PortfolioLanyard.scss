@@ -1,0 +1,76 @@
+.hero-art.portfolio-lanyard-slot {
+  position: relative;
+  padding: 0;
+  aspect-ratio: 0.95;
+  background: none;
+  border: 0;
+
+  .portfolio-lanyard__fallback img {
+    display: block;
+    width: 100%;
+    border-radius: 0.45rem;
+    filter: none;
+    box-shadow: 0 0.5rem 1.25rem #05091288;
+  }
+}
+
+.portfolio-lanyard {
+  position: fixed;
+  z-index: 1;
+  inset: calc(var(--header-height) - 1px) 0 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  .lanyard {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.portfolio-lanyard-slot:has(.lanyard-canvas) .portfolio-lanyard__fallback {
+  opacity: 0;
+}
+
+.portfolio-lanyard .lanyard-grip {
+  position: absolute;
+  inset: 0 auto auto 0;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.portfolio-lanyard__fallback {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: calc(50% - 0.35rem);
+    width: 0.7rem;
+    height: calc(var(--lanyard-lead, 0px) + 15%);
+    background: repeating-linear-gradient(
+      #273854 0 0.5rem,
+      #415979 0.5rem 0.58rem
+    );
+  }
+}
+
+@media (max-width: 44rem) {
+  .hero:has(.portfolio-lanyard-slot) {
+    padding-top: 0;
+    row-gap: 0.8rem;
+  }
+
+  .hero-art.portfolio-lanyard-slot {
+    grid-row: 1;
+    justify-self: center;
+    max-width: 23rem;
+    aspect-ratio: 0.99;
+  }
+}
