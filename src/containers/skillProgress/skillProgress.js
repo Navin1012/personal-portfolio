@@ -1,57 +1,36 @@
 import React from "react";
-import "./Progress.scss";
-import {illustration, techStack} from "../../portfolio";
-import {Fade} from "react-reveal";
-import Build from "../../assets/lottie/build";
-import DisplayLottie from "../../components/displayLottie/DisplayLottie";
+import {techStack} from "../../portfolio";
 
 export default function StackProgress() {
-  if (techStack.viewSkillBars) {
-    return (
-      <Fade bottom duration={1000} distance="20px">
-        <div className="progress-section">
-          <div className="progress-container">
-            <div className="progress-content">
-              <h1 className="progress-title">Technical Proficiency</h1>
-              <div className="skills-grid">
-                {techStack.experience.map((exp, i) => {
-                  return (
-                    <div key={i} className="skill-card">
-                      <div className="skill-header">
-                        <span className="skill-name">{exp.Stack}</span>
-                        <span className="skill-percentage">
-                          {exp.progressPercentage}
-                        </span>
-                      </div>
-                      <div className="progress-bar">
-                        <div
-                          className="progress-fill"
-                          style={{width: exp.progressPercentage}}
-                          data-percentage={exp.progressPercentage}
-                        >
-                          <div className="progress-glow"></div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+  if (!techStack.viewSkillBars) return null;
 
-            <div className="progress-visual">
-              {illustration.animated ? (
-                <DisplayLottie animationData={Build} />
-              ) : (
-                <img
-                  alt="Technical Skills"
-                  src={require("../../assets/images/skill.svg")}
-                />
-              )}
-            </div>
-          </div>
-        </div>
-      </Fade>
-    );
-  }
-  return null;
+  return (
+    <section className="portfolio-section" aria-labelledby="proficiency-title">
+      <div className="frame section-split">
+        <h2 id="proficiency-title" data-reveal>
+          Technical Proficiency
+        </h2>
+        <ul className="panel proficiency-list" data-reveal-group>
+          {techStack.experience.map(({Stack, progressPercentage}) => (
+            <li key={Stack} data-reveal>
+              <div className="proficiency-label">
+                <span>{Stack}</span>
+                <span aria-hidden="true">{progressPercentage}</span>
+              </div>
+              <div
+                className="proficiency-track"
+                role="meter"
+                aria-label={Stack}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={parseFloat(progressPercentage)}
+              >
+                <div style={{width: progressPercentage}} />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
 }

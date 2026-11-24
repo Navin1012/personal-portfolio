@@ -29,7 +29,11 @@
 
 /* Hover glow and scale effect */
 #topButton:hover {
-  background: linear-gradient(135deg, lighten($buttonColor, 5%), $topButtonHover);
+  background: linear-gradient(
+    135deg,
+    lighten($buttonColor, 5%),
+    $topButtonHover
+  );
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 15px rgba($buttonColor, 0.5);
   transform: scale(1.1);
 }

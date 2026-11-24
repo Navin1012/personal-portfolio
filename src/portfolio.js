@@ -21,12 +21,11 @@ const illustration = {
 
 const greeting = {
   username: "Navin",
-  title: "Hi all, I'm Navin Chaudhary",
-  subTitle: emoji(
-    "A PHP Laravel Developer 💻 with expertise in building dynamic, secure, and scalable web applications using Laravel, MySQL, React, and modern frontend frameworks. Focused on clean code and high-quality solutions."
-  ),
-  resumeLink:
-    "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+  title: "Navin Chaudhary",
+  role: "PHP Laravel Developer",
+  subTitle:
+    "I build dynamic, secure, and scalable web applications using Laravel, MySQL, React, and modern frontend frameworks. Focused on clean code and high-quality solutions.",
+  resumeLink: `${process.env.PUBLIC_URL}/Resume.pdf`,
   displayGreeting: true
 };
 
@@ -44,26 +43,44 @@ const socialMediaLinks = {
 // Skills Section
 
 const skillsSection = {
-  title: "What I do",
-  subTitle:
-    "PASSIONATE LARAVEL DEVELOPER WHO BUILDS SCALABLE AND EFFICIENT WEB APPLICATIONS",
+  title: "What I Do",
+  subTitle: "I build scalable, efficient web applications with Laravel.",
   skills: [
-    emoji(
-      "⚡ Build robust backend systems and RESTful APIs using PHP & Laravel"
-    ),
-    emoji(
-      "⚡ Design and manage MySQL / MongoDB databases with optimized queries"
-    ),
-    emoji(
-      "⚡ Develop responsive front-end interfaces using React.js / Blade templates"
-    ),
-    emoji(
-      "⚡ Implement authentication, roles, and permissions with Laravel Breeze, Jetstream, and Sanctum"
-    ),
-    emoji(
-      "⚡ Integrate third-party APIs, payment gateways, and AWS/Firebase services"
-    ),
-    emoji("⚡ Manage deployment, version control, and CI/CD pipelines")
+    {
+      title: "Backend & APIs",
+      icon: "fas fa-server",
+      description:
+        "Build robust backend systems and RESTful APIs using PHP and Laravel."
+    },
+    {
+      title: "Databases",
+      icon: "fas fa-database",
+      description:
+        "Design and manage MySQL and MongoDB databases with optimized queries."
+    },
+    {
+      title: "Frontend Development",
+      icon: "fas fa-code",
+      description:
+        "Develop responsive interfaces using React.js and Blade templates."
+    },
+    {
+      title: "Authentication & Access",
+      icon: "fas fa-lock",
+      description:
+        "Implement authentication, roles, and permissions with Laravel Breeze, Jetstream, and Sanctum."
+    },
+    {
+      title: "Service Integrations",
+      icon: "fas fa-plug",
+      description:
+        "Integrate third-party APIs, payment gateways, and AWS and Firebase services."
+    },
+    {
+      title: "Deployment & CI/CD",
+      icon: "fas fa-code-branch",
+      description: "Manage deployment, version control, and CI/CD pipelines."
+    }
   ],
   softwareSkills: [
     {skillName: "PHP", fontAwesomeClassname: "fab fa-php"},
@@ -318,9 +335,10 @@ const resumeSection = {
 };
 
 const contactInfo = {
-  title: emoji("Contact Me ☎️"),
+  title: "Contact Me",
+  headline: "Let’s talk about your project.",
   subtitle:
-    "Discuss a Laravel project, collaborate, or just say hi! My inbox is always open.",
+    "Building a Laravel app, integrating an API, or improving an existing backend? Tell me what you’re working on and where you could use a hand. I’m also happy to connect about developer roles and collaborations.",
   number: "+91-9313404276",
   email_address: "nc13760@gmail.com"
 };

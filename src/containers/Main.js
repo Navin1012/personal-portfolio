@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef} from "react";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
@@ -12,31 +12,48 @@ import Footer from "../components/footer/Footer";
 import Talks from "./talks/Talks";
 import Podcast from "./podcast/Podcast";
 import Education from "./education/Education";
-import ScrollToTopButton from "./topbutton/Top";
 import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
-import SplashScreen from "./splashScreen/SplashScreen";
-import {splashScreen} from "../portfolio";
 import {StyleProvider} from "../contexts/StyleContext";
+import usePortfolioMotion from "../hooks/usePortfolioMotion";
 import {useLocalStorage} from "../hooks/useLocalStorage";
-import "./Main.scss";
 
 const Main = () => {
-  const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
-  const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
-  const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
-    useState(true);
+  const site = useRef(null);
+  usePortfolioMotion(site);
+  const darkPref = window.matchMedia?.("(prefers-color-scheme: dark)");
+  const [isDark, setIsDark] = useLocalStorage(
+    "isDark",
+    darkPref?.matches ?? false
+  );
+  useEffect(() => {
+    document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", isDark ? "#0B0B0B" : "#FAFAFA");
+  }, [isDark]);
 
   useEffect(() => {
-    if (splashScreen.enabled) {
-      const splashTimer = setTimeout(
-        () => setIsShowingSplashAnimation(false),
-        splashScreen.duration
-      );
-      return () => {
-        clearTimeout(splashTimer);
-      };
+    const initialHash = window.location.hash;
+    if (!initialHash) return;
+
+    // Wait for the browser's initial scroll and the React layout to settle.
+    let frame;
+    function scrollToAnchor() {
+      frame = window.requestAnimationFrame(() => {
+        if (window.location.hash !== initialHash) return;
+        const target = document.getElementById(initialHash.slice(1));
+        target?.scrollIntoView?.({behavior: "instant"});
+      });
     }
+
+    if (document.readyState === "complete") scrollToAnchor();
+    else window.addEventListener("load", scrollToAnchor, {once: true});
+
+    return () => {
+      window.removeEventListener("load", scrollToAnchor);
+      window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   const changeTheme = () => {
@@ -44,32 +61,36 @@ const Main = () => {
   };
 
   return (
-    <div className={isDark ? "dark-mode" : null}>
-      <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
-        {isShowingSplashAnimation && splashScreen.enabled ? (
-          <SplashScreen />
-        ) : (
-          <>
-            <Header />
-            <Greeting />
-            <Skills />
-            <StackProgress />
-            <Education />
-            <WorkExperience />
-            <Projects />
-            <StartupProject />
-            <Achievement />
-            <Blogs />
-            <Talks />
-            <Twitter />
-            <Podcast />
-            <Profile />
-            <Footer />
-            <ScrollToTopButton />
-          </>
-        )}
-      </StyleProvider>
-    </div>
+    <StyleProvider value={{isDark, changeTheme}}>
+      <div
+        className="portfolio-site"
+        ref={site}
+        data-theme={isDark ? "dark" : "light"}
+        id="page-top"
+        tabIndex={-1}
+      >
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <Header />
+        <main id="main-content" tabIndex={-1}>
+          <Greeting />
+          <Skills />
+          <StackProgress />
+          <Education />
+          <WorkExperience />
+          <Projects />
+          <StartupProject />
+          <Achievement />
+          <Blogs />
+          <Talks />
+          <Twitter />
+          <Podcast />
+          <Profile />
+        </main>
+        <Footer />
+      </div>
+    </StyleProvider>
   );
 };
 

@@ -68,7 +68,24 @@
     />
 
     <!-- ✅ Theme and App Colors -->
-    <meta name="theme-color" content="#6c63ff" />
+    <meta name="theme-color" content="#fafafa" />
+    <script>
+      (function () {
+        var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        try {
+          var saved = JSON.parse(localStorage.getItem("isDark"));
+          if (saved !== null) dark = Boolean(saved);
+        } catch (error) {
+          // Use the system preference if storage is unavailable.
+        }
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.querySelector('meta[name="theme-color"]').content = dark ? "#0b0b0b" : "#fafafa";
+      })();
+    </script>
+    <style>
+      html { background: #fafafa; color-scheme: light; }
+      html[data-theme="dark"] { background: #0b0b0b; color-scheme: dark; }
+    </style>
     <meta name="msapplication-TileColor" content="#603cba" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />

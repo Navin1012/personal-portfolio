@@ -1,30 +1,26 @@
-import React, { useEffect } from "react";
-import "./Top.scss";
+import React from "react";
 
 export default function Top() {
-  const TopEvent = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    const button = document.getElementById("topButton");
-
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        button.classList.add("show", "pulse");
-      } else {
-        button.classList.remove("show", "pulse");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Run once at mount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <button onClick={TopEvent} id="topButton" title="Go to top">
-      <i className="fas fa-hand-point-up" aria-hidden="true"></i>
-    </button>
+    <a
+      className="icon-control top-action"
+      href="#page-top"
+      aria-label="Back to top"
+      title="Back to top"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="m6 13 6-6 6 6m-6-6v12" />
+      </svg>
+    </a>
   );
 }
