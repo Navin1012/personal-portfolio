@@ -1,29 +1,51 @@
-import React, {useEffect, useRef} from "react";
+import React, {Suspense, useEffect, useRef} from "react";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import Skills from "./skills/Skills";
 import StackProgress from "./skillProgress/skillProgress";
-import WorkExperience from "./workExperience/WorkExperience";
-import Projects from "./projects/Projects";
-import StartupProject from "./StartupProjects/StartupProject";
-import Achievement from "./achievement/Achievement";
 import Blogs from "./blogs/Blogs";
 import Footer from "../components/footer/Footer";
-import Talks from "./talks/Talks";
-import Podcast from "./podcast/Podcast";
 import Education from "./education/Education";
-import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
 import {StyleProvider} from "../contexts/StyleContext";
-import usePointerLight from "../hooks/usePointerLight";
+import {
+  achievementSection,
+  bigProjects,
+  openSource,
+  podcastSection,
+  talkSection,
+  twitterDetails,
+  workExperiences
+} from "../portfolio";
+import "../components/dotGrid/DotGrid.css";
+import useDeferredEffect, {
+  lazyOptionalEffect
+} from "../hooks/useDeferredEffect";
 import usePortfolioMotion from "../hooks/usePortfolioMotion";
 import {useLocalStorage} from "../hooks/useLocalStorage";
 import "../Effects.scss";
 
+const DotGrid = lazyOptionalEffect(() =>
+  import("../components/dotGrid/DotGrid")
+);
+const WorkExperience = lazyOptionalEffect(() =>
+  import("./workExperience/WorkExperience")
+);
+const Projects = lazyOptionalEffect(() => import("./projects/Projects"));
+const StartupProject = lazyOptionalEffect(() =>
+  import("./StartupProjects/StartupProject")
+);
+const Achievement = lazyOptionalEffect(() =>
+  import("./achievement/Achievement")
+);
+const Talks = lazyOptionalEffect(() => import("./talks/Talks"));
+const Twitter = lazyOptionalEffect(() => import("./twitter-embed/twitter"));
+const Podcast = lazyOptionalEffect(() => import("./podcast/Podcast"));
+
 const Main = () => {
   const site = useRef(null);
   usePortfolioMotion(site);
-  usePointerLight(site);
+  const gridReady = useDeferredEffect(400);
   const darkPref = window.matchMedia?.("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage(
     "isDark",
@@ -42,11 +64,27 @@ const Main = () => {
 
     // Wait for the browser's initial scroll and the React layout to settle.
     let frame;
+    let sectionObserver;
     function scrollToAnchor() {
       frame = window.requestAnimationFrame(() => {
         if (window.location.hash !== initialHash) return;
-        const target = document.getElementById(initialHash.slice(1));
-        target?.scrollIntoView?.({behavior: "instant"});
+        function findAndScroll() {
+          const target = document.getElementById(initialHash.slice(1));
+          if (target || window.location.hash !== initialHash) {
+            sectionObserver?.disconnect();
+          }
+          if (!target || window.location.hash !== initialHash) return false;
+          target.scrollIntoView?.({behavior: "instant"});
+          return true;
+        }
+
+        if (!findAndScroll() && window.MutationObserver) {
+          sectionObserver = new MutationObserver(findAndScroll);
+          sectionObserver.observe(site.current, {
+            childList: true,
+            subtree: true
+          });
+        }
       });
     }
 
@@ -56,6 +94,7 @@ const Main = () => {
     return () => {
       window.removeEventListener("load", scrollToAnchor);
       window.cancelAnimationFrame(frame);
+      sectionObserver?.disconnect();
     };
   }, []);
 
@@ -72,7 +111,35 @@ const Main = () => {
         id="page-top"
         tabIndex={-1}
       >
-        <div className="pointer-light" aria-hidden="true" />
+        <div className="dot-grid portfolio-dot-grid" aria-hidden="true">
+          {gridReady && (
+            <Suspense fallback={null}>
+              <DotGrid
+                baseColor={isDark ? "#3a3446" : "#e5e0ea"}
+                activeColor={isDark ? "#ffffff" : "#dccded"}
+                shape="circle"
+                dotSize={5}
+                gap={18}
+                proximity={140}
+                strength={1}
+                bounce={0.6}
+                tension={0.4}
+                returnDuration={0.8}
+                shockRadius={320}
+                shockStrength={5}
+                swell={0.8}
+                stretch={0.5}
+                glow={0.5}
+                fade={0}
+                intro={false}
+                opacity={isDark ? 0.9 : 0.72}
+                mouseInteraction
+                clickShock
+                dpr={1.5}
+              />
+            </Suspense>
+          )}
+        </div>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
@@ -82,15 +149,18 @@ const Main = () => {
           <Skills />
           <StackProgress />
           <Education />
-          <WorkExperience />
-          <Projects />
-          <StartupProject />
-          <Achievement />
+          <Suspense fallback={null}>
+            {workExperiences.display && <WorkExperience />}
+            {openSource.display && <Projects />}
+            {bigProjects.display && <StartupProject />}
+            {achievementSection.display && <Achievement />}
+          </Suspense>
           <Blogs />
-          <Talks />
-          <Twitter />
-          <Podcast />
-
+          <Suspense fallback={null}>
+            {talkSection.display && <Talks />}
+            {twitterDetails.display && <Twitter />}
+            {podcastSection.display && <Podcast />}
+          </Suspense>
           <Profile />
         </main>
         <Footer />

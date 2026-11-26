@@ -1,50 +1,32 @@
-.hero h1.hero-neon {
+.hero h1.hero-name {
+  --hero-name-gold: #725000;
   position: relative;
-  color: #303b55;
-  letter-spacing: -0.035em;
+  font-family: "Space Grotesk", "Plus Jakarta Sans", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.065em;
 
-  .neon-logo-container {
+  span {
+    display: block;
+    white-space: pre-line;
+  }
+
+  span::first-line {
+    color: var(--hero-name-gold);
+  }
+}
+
+[data-theme="dark"] .hero h1.hero-name {
+  --hero-name-gold: #ffc100;
+}
+
+@media (max-width: 44rem) {
+  .hero h1.hero-name {
     position: absolute;
-    inset: -0.15em -0.23em;
-    width: auto;
-    height: auto;
-    opacity: 0;
-    filter: drop-shadow(0 0 0.17em #6376a35c);
-  }
-
-  .neon-logo-container[data-neon-ready] {
-    opacity: 1;
-
-    + .hero-neon__text {
-      opacity: 0;
-    }
-  }
-}
-
-.hero-neon__text {
-  display: block;
-  white-space: pre-line;
-}
-
-[data-theme="dark"] .hero h1.hero-neon {
-  color: #dce4f3;
-
-  .neon-logo-container {
-    filter: drop-shadow(0 0 0.19em #9db7ed60);
-  }
-}
-
-@media (forced-colors: active) {
-  [data-theme] .hero h1.hero-neon {
-    color: CanvasText;
-
-    .neon-logo-container {
-      display: none;
-    }
-
-    .neon-logo-container[data-neon-ready] + .hero-neon__text {
-      opacity: 1;
-    }
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 

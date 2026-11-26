@@ -703,7 +703,7 @@ const NeonLogo = ({
       gl.bindVertexArray(null);
       if (
         state.box[2] > 0 &&
-        grow >= 1 &&
+        grow >= 0.65 &&
         !container.hasAttribute("data-neon-ready")
       )
         container.setAttribute("data-neon-ready", "");

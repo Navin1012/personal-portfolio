@@ -1,13 +1,17 @@
-import React, {lazy, Suspense, useEffect, useRef, useState} from "react";
+import React, {Suspense, useEffect, useRef, useState} from "react";
 import frontImage from "./navin-card-front.png";
 import backImage from "./card-back.svg";
 import strapImage from "./band.svg";
 import "./PortfolioLanyard.scss";
+import useDeferredEffect, {
+  lazyOptionalEffect
+} from "../../hooks/useDeferredEffect";
 
-const Lanyard = lazy(() => import("./Lanyard"));
+const Lanyard = lazyOptionalEffect(() => import("./Lanyard"));
 
 export default function PortfolioLanyard() {
   const [animated, setAnimated] = useState(false);
+  const lanyardReady = useDeferredEffect(1600);
   const home = useRef(null);
 
   useEffect(() => {
@@ -50,7 +54,7 @@ export default function PortfolioLanyard() {
         <img src={frontImage} alt="Navin Chaudhary, Software Developer" />
       </div>
       <div className="portfolio-lanyard">
-        {animated && (
+        {animated && lanyardReady && (
           <Suspense fallback={null}>
             <Lanyard
               home={home}

@@ -13,6 +13,7 @@ import {
 } from "../../portfolio";
 
 const links = [
+  [true, "page-top", "Home"],
   [skillsSection.display, "skills", "Skills"],
   [workExperiences.display, "experience", "Work Experiences"],
   [openSource.display, "opensource", "Open Source"],
@@ -23,21 +24,23 @@ const links = [
   [true, "contact", "Contact Me"]
 ];
 
+const navigationItems = links
+  .filter(([visible]) => visible)
+  .map(([, id, label]) => ({id, label, href: `#${id}`}));
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState("page-top");
   const menuButton = useRef(null);
 
   useEffect(() => {
-    const targets = links
-      .filter(([visible]) => visible)
-      .map(([, id]) => document.getElementById(id))
-      .filter(Boolean);
-    const hero = document.getElementById("greeting");
     let frame;
 
     function update() {
       frame = undefined;
+      const targets = navigationItems
+        .map(({id}) => document.getElementById(id))
+        .filter(Boolean);
       const line = Math.min(180, window.innerHeight * 0.25);
       const atBottom =
         window.scrollY > 0 &&
@@ -49,10 +52,7 @@ export default function Header() {
             .filter(target => target.getBoundingClientRect().top <= line)
             .pop();
 
-      setActiveSection(
-        current?.id ??
-          (hero?.getBoundingClientRect().bottom > line ? null : targets[0]?.id)
-      );
+      setActiveSection(current?.id ?? "page-top");
     }
 
     function scheduleUpdate() {
@@ -125,18 +125,26 @@ export default function Header() {
           data-open={menuOpen}
           aria-label="Main navigation"
         >
-          {links
-            .filter(([visible]) => visible)
-            .map(([, id, label]) => (
-              <a
-                key={id}
-                href={"#" + id}
-                aria-current={activeSection === id ? "location" : undefined}
-                onClick={() => setMenuOpen(false)}
-              >
-                <span>{label}</span>
-              </a>
-            ))}
+          {navigationItems.map(({id, label, href}) => (
+            <a
+              key={id}
+              href={href}
+              aria-current={id === activeSection ? "location" : undefined}
+              onClick={event => {
+                if (
+                  event.metaKey ||
+                  event.ctrlKey ||
+                  event.shiftKey ||
+                  event.altKey
+                )
+                  return;
+                setActiveSection(id);
+                setMenuOpen(false);
+              }}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
       </div>
     </header>

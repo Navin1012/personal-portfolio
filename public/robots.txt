@@ -1,6 +1,4 @@
-
 User-agent: *
 Allow: /
 
 Sitemap: https://navinchaudhary.netlify.app/sitemap.xml
-Host: https://navinchaudhary.netlify.app

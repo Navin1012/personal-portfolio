@@ -1,11 +1,8 @@
 :root {
   --page: #fafafa;
-  --spotlight-pink: rgba(219, 55, 166, 0.21);
-  --spotlight-blue: rgba(32, 153, 221, 0.23);
-  --spotlight-violet: rgba(124, 75, 235, 0.16);
   --surface: #fff;
-  --text: #111;
-  --secondary: #525252;
+  --text: #101010;
+  --secondary: #383838;
   --line: #d4d4d4;
   --strong-line: #737373;
   --soft: #ededed;
@@ -21,16 +18,15 @@
   --header-height: 4.25rem;
   --interaction-duration: 160ms;
   --entrance-duration: 400ms;
+  --entrance-opacity: 1;
   --motion-step: 50ms;
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
 }
 
 [data-theme="dark"] {
+  --entrance-opacity: 0.85;
   --page: #0b0b0b;
-  --spotlight-pink: rgba(238, 89, 208, 0.28);
-  --spotlight-blue: rgba(90, 174, 240, 0.29);
-  --spotlight-violet: rgba(153, 104, 255, 0.24);
   --surface: #151515;
   --text: #f5f5f5;
   --secondary: #a3a3a3;
@@ -147,18 +143,33 @@ h3 {
 .site-nav {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 0.25rem;
+  padding: 0.3rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+
   a {
-    padding: 0.625rem 0.75rem;
-    font-size: 0.9375rem;
+    border-radius: inherit;
+    padding: 0.55rem 0.85rem;
+    color: var(--secondary);
+    font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
+    white-space: nowrap;
+
     &:hover {
       background: var(--hover);
+      color: var(--text);
+    }
+
+    &[aria-current="location"] {
+      background: var(--accent);
+      color: var(--on-accent);
     }
   }
 }
+
 .header-controls {
   display: flex;
   gap: 0.5rem;
@@ -462,6 +473,7 @@ h3 {
     align-items: stretch;
     padding: 0.5rem;
     border: 1px solid var(--line);
+    border-radius: 0.625rem;
     background: var(--surface);
     opacity: 0;
     transform: translateY(-6px);
@@ -516,25 +528,6 @@ h3 {
   transform: translateY(1px) scale(0.98);
 }
 
-.site-nav a span {
-  position: relative;
-
-  &::after {
-    position: absolute;
-    inset: auto 0 -0.3em;
-    height: 1px;
-    background: currentColor;
-    content: "";
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--interaction-duration) var(--motion-ease);
-  }
-}
-
-.site-nav a:is(:hover, :focus-visible, [aria-current="location"]) span::after {
-  transform: scaleX(1);
-}
-
 .theme-toggle :is(.theme-sun, .theme-moon) {
   transform-origin: center;
   transition: opacity var(--interaction-duration) var(--motion-ease),
@@ -579,7 +572,7 @@ h3 {
   [data-revealed="true"],
   .hero[data-intro]
     .hero-content
-    > :is(h1, .hero-role, .hero-intro, .hero-actions) {
+    > :is(.hero-role, .hero-intro, .hero-actions) {
     animation: portfolio-enter var(--entrance-duration) var(--motion-ease)
       var(--reveal-delay, 0ms) backwards;
   }
@@ -608,7 +601,7 @@ h3 {
 
   @keyframes portfolio-enter {
     from {
-      opacity: 0.85;
+      opacity: var(--entrance-opacity);
       transform: translateY(12px);
     }
     to {
@@ -646,61 +639,4 @@ h3 {
 }
 .portfolio-site {
   isolation: isolate;
-}
-
-.pointer-light {
-  display: none;
-}
-
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .pointer-light {
-    display: block;
-    position: fixed;
-    z-index: -1;
-    inset: -12rem auto auto -12rem;
-    width: 24rem;
-    height: 24rem;
-    pointer-events: none;
-    opacity: 0;
-    background: radial-gradient(
-        ellipse at 37% 40%,
-        var(--spotlight-pink),
-        transparent 42%
-      ),
-      radial-gradient(
-        ellipse at 61% 56%,
-        var(--spotlight-blue),
-        transparent 44%
-      ),
-      radial-gradient(closest-side, var(--spotlight-violet), transparent);
-    transition: opacity var(--interaction-duration);
-  }
-  [data-pointer] .pointer-light {
-    opacity: 1;
-  }
-
-  :is(.capability, .article-card, .education-entry, .contact-card) {
-    position: relative;
-    &::after {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      pointer-events: none;
-      padding: 1px;
-      border-radius: inherit;
-      background: radial-gradient(
-        8rem circle at var(--local-x, 50%) var(--local-y, 50%),
-        var(--spotlight-blue),
-        var(--spotlight-pink) 48%,
-        transparent
-      );
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity var(--interaction-duration);
-    }
-    &[data-lit]::after {
-      opacity: 1;
-    }
-  }
 }

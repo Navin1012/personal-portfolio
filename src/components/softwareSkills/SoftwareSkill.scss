@@ -1,31 +1,26 @@
-@import "../../_globalColor";
+.technology-showcase {
+  margin-top: 0.75rem;
 
-.dev-icons {
-  padding-left: 0;
-  list-style: none;
-  font-size: 3rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
+  .logoloop {
+    min-height: 6rem;
+    padding-block: 0.85rem;
+    border-block: 1px solid var(--line);
+    color: var(--text);
+  }
+
+  .logoloop__content {
+    min-width: 4.4rem;
+    justify-content: center;
+  }
+
+  .logoloop__label {
+    color: var(--secondary);
+    opacity: 1;
+  }
 }
 
-.software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-.software-skill-inline > i {
-  color: $subTitle;
-}
-
-.software-skill-inline > i:hover {
-  color: $skillsColor;
-}
-.software-skill-inline > p {
-  color: $subTitle;
-  font-size: 10px;
-}
-.software-skill-inline > i:hover ~ p {
-  color: $skillsColor;
+@media (hover: hover) {
+  .technology-showcase .technology-grid li:hover i {
+    color: var(--technology-hover-color, currentColor);
+  }
 }

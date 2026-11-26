@@ -25,7 +25,7 @@ const RING_RADIUS = 0.095;
 const RING_TUBE = 0.0135;
 const EYELET_RADIUS = 0.036;
 const CLAMP_BODY = 0.15;
-const FACE_WIDTH = 1024;
+const FACE_WIDTH = 768;
 
 const FINISHES = {
   glossy: {
@@ -389,7 +389,7 @@ const buildEnvironment = renderer => {
   panel(0.5, [0, -7, 1], [16, 6]);
   panel(0.9, [8, 0, -2], [4, 10]);
   const pmrem = new THREE.PMREMGenerator(renderer);
-  const target = pmrem.fromScene(scene, 0.035);
+  const target = pmrem.fromScene(scene, 0.035, 0.1, 100, {size: 128});
   pmrem.dispose();
   geometry.dispose();
   materials.forEach(material => material.dispose());
@@ -979,10 +979,6 @@ const Lanyard = ({
       sheenColor: new THREE.Color(0.32, 0.32, 0.34),
       side: THREE.DoubleSide
     });
-    renderer.localClippingEnabled = true;
-    const beltPlanes = Array.from({length: 4}, () => new THREE.Plane());
-    const beltCorners = Array.from({length: 4}, () => new THREE.Vector3());
-    const beltCenter = new THREE.Vector3();
 
     const cardGroup = new THREE.Group();
     const bodyMesh = new THREE.Mesh(undefined, edgeMaterial);
@@ -1089,36 +1085,6 @@ const Lanyard = ({
         (viewport.top + view.height / 2 - strapTop) * worldPerPixel,
         0
       );
-
-      const clipBelt = window.matchMedia?.(
-        "(max-width: 48rem), (pointer: coarse)"
-      )?.matches;
-      if (!clipBelt) {
-        bandMaterial.clippingPlanes = null;
-        return;
-      }
-      const toWorld = (target, x, y) =>
-        target
-          .set(
-            ((x - viewport.left) / view.width) * 2 - 1,
-            1 - ((y - viewport.top) / view.height) * 2,
-            0.5
-          )
-          .unproject(camera);
-      toWorld(beltCorners[0], rect.left, strapTop);
-      toWorld(beltCorners[1], rect.right, strapTop);
-      toWorld(beltCorners[2], rect.right, rect.bottom);
-      toWorld(beltCorners[3], rect.left, rect.bottom);
-      toWorld(beltCenter, middleX, rect.top + rect.height / 2);
-      beltPlanes.forEach((plane, index) => {
-        plane.setFromCoplanarPoints(
-          camera.position,
-          beltCorners[index],
-          beltCorners[(index + 1) % 4]
-        );
-        if (plane.distanceToPoint(beltCenter) < 0) plane.negate();
-      });
-      bandMaterial.clippingPlanes = beltPlanes;
     };
 
     const frameView = () => {

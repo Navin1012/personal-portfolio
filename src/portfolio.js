@@ -3,13 +3,11 @@
 // To change portfolio colors globally go to the  _globalColor.scss file
 
 import emoji from "react-easy-emoji";
-import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
 
 // Splash Screen
 
 const splashScreen = {
   enabled: true, // set false to disable splash screen
-  animation: splashAnimation,
   duration: 2000 // Set animation duration as per your animation
 };
 
@@ -22,9 +20,9 @@ const illustration = {
 const greeting = {
   username: "Navin",
   title: "Navin Chaudhary",
-  role: "PHP Laravel Developer",
+  role: "Software Developer",
   subTitle:
-    "I build Laravel APIs and web applications, from MySQL queries and authentication to responsive interfaces in React and Blade.",
+    "I build web applications and REST APIs with PHP and Laravel. My work covers MySQL data models, authentication, order and payment workflows, and responsive interfaces in React and Blade.",
   resumeLink: `${process.env.PUBLIC_URL}/Resume.pdf`,
   displayGreeting: true
 };
@@ -45,42 +43,43 @@ const socialMediaLinks = {
 const skillsSection = {
   title: "What I Do",
   subTitle:
-    "My work spans database design, application development, and deployment.",
+    "From designing an API to deploying the application, I work across the backend, database, and interface.",
   skills: [
     {
       title: "Laravel APIs",
       icon: "fas fa-server",
       description:
-        "Build REST APIs for web and mobile apps, including orders, payments, and authentication."
+        "Build REST endpoints for web and mobile apps, including order and checkout flows."
     },
     {
       title: "Database Optimization",
       icon: "fas fa-database",
       description:
-        "Model application data in MySQL and MongoDB, and tune queries."
+        "Design schemas in MySQL and MongoDB and tune queries for common application workflows."
     },
     {
       title: "React & Blade Interfaces",
       icon: "fas fa-code",
       description:
-        "Develop responsive interfaces using React.js and Blade templates."
+        "Build responsive user interfaces with React and server-rendered views with Blade."
     },
     {
       title: "Authentication & Access",
       icon: "fas fa-lock",
       description:
-        "Implement authentication, roles, and permissions with Laravel Breeze, Jetstream, and Sanctum."
+        "Set up sign-in, API authentication, and role-based access with Laravel Breeze, Jetstream, and Sanctum."
     },
     {
       title: "Service Integrations",
       icon: "fas fa-plug",
       description:
-        "Connect payment gateways, shipping APIs, and cloud services."
+        "Connect payment gateways and shipping APIs to the application’s order workflow."
     },
     {
       title: "Deployment & CI/CD",
       icon: "fas fa-code-branch",
-      description: "Manage deployment, version control, and CI/CD pipelines."
+      description:
+        "Use Git and CI/CD pipelines to manage releases and deploy applications."
     }
   ],
   softwareSkills: [
@@ -278,17 +277,17 @@ const blogSection = {
     {
       title: "Building RESTful APIs with Laravel 10",
       description:
-        "Learn to design secure, scalable REST APIs in Laravel 10 using best practices."
+        "A walkthrough of routes, request validation, and authentication in a Laravel 10 API."
     },
     {
       title: "Optimizing Laravel Performance for Production",
       description:
-        "Guide on caching, query optimization, and performance tuning in Laravel."
+        "Practical ways to use caching and query optimization to reduce unnecessary work."
     },
     {
       title: "Integrating React with Laravel using Inertia.js",
       description:
-        "Step-by-step guide for building full-stack apps with Laravel + React."
+        "How to serve React pages from Laravel routes using Inertia.js."
     }
   ],
   display: true
@@ -339,7 +338,7 @@ const contactInfo = {
   title: "Contact Me",
   headline: "Let’s talk about your project.",
   subtitle:
-    "Building a Laravel app, integrating an API, or improving an existing backend? Tell me what you’re working on and where you could use a hand. I’m also happy to connect about developer roles and collaborations.",
+    "Reach out about Laravel development, API integrations, or backend improvements. If you’re hiring or looking to collaborate, share a little about the role or project.",
   number: "+91-9313404276",
   email_address: "nc13760@gmail.com"
 };
